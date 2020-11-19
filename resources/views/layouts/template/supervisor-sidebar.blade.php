@@ -5,7 +5,7 @@
                 <i class="ti-menu mb-2 pb-2"></i>
             </a> --}}
 
-            <a href="index.html">
+            <a href="">
                 <h3 class="ml-4 mt-2">KoKeRu</h3>
             </a>
             <a class="mobile-options">
@@ -24,18 +24,18 @@
                     </a>
                     <ul class="show-notification profile-notification">
                         <li>
-                            <a href="#!">
+                            <a href="">
                                 <i class="ti-settings"></i> Settings
                             </a>
                         </li>
                         <li>
-                            <a href="user-profile.html">
+                            <a href="">
                                 <i class="ti-user"></i> Profile
                             </a>
                         </li>
 
                         <li>
-                            <a href="auth-normal-sign-in.html">
+                            <a href="{{ route('login') }}">
                                 <i class="ti-layout-sidebar-left"></i> Logout
                             </a>
                         </li>
@@ -51,38 +51,38 @@
             <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
             <div class="pcoded-inner-navbar main-menu">
 
-                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
+                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Home</div>
                 <ul class="pcoded-item pcoded-left-item">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="">
                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
                     <li class="">
-                        <a href="index.html">
+                        <a href="">
                             <span class="pcoded-micon"><i class="ti-location-pin"></i><b>R</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Ruangan</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
                     <li class="">
-                        <a href="index.html">
+                        <a href="">
                             <span class="pcoded-micon"><i class="ti-user"></i><b>CS</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Cleaning Service</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
                     <li class="">
-                        <a href="index.html">
+                        <a href="">
                             <span class="pcoded-micon"><i class="ti-settings"></i><b>S</b></span>
-                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Settings Service</span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Settings</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
                     <li class="">
-                        <a href="index.html">
+                        <a href="{{ route('login') }}">
                             <span class="pcoded-micon"><i class="ti-share-alt"></i><b>S</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Logout</span>
                             <span class="pcoded-mcaret"></span>
