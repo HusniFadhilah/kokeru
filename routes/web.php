@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
-
 Auth::routes();
+
+Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 
 //Functions accessed by only supervisor users
 Route::prefix('/supervisor')
