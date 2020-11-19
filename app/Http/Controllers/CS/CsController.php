@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Supervisor;
+namespace App\Http\Controllers\CS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SupervisorController extends Controller
+class CsController extends Controller
 {
     public function index(Request $request)
     {
-        return view('supervisor.index');
+        return view('cs.index');
     }
 }

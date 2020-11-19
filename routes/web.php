@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Supervisor\SupervisorController;
+use App\Http\Controllers\Cs\CsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,5 +19,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 
 Auth::routes();
+
+//Functions accessed by only supervisor users
+Route::prefix('/supervisor')
+    ->namespace('Supervisor')
+    ->name('supervisor.')
+    // ->middleware('role:supervisor')
+    ->group(function () {
+        Route::get('/dashboard', [SupervisorController::class, 'index'])->name('index');
+    });
+
+//Functions accessed by only cs users
+Route::prefix('/cs')
+    ->namespace('Cs')
+    ->name('cs.')
+    // ->middleware('role:cs')
+    ->group(function () {
+        Route::get('/dashboard', [CsController::class, 'index'])->name('index');
+    });
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

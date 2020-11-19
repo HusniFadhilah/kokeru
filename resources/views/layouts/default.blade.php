@@ -32,8 +32,23 @@
 
 <body class="">
 
-    @include('layouts/template/supervisor-sidebar')
-    @yield('content')
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+            @include('layouts/template/supervisor-sidebar')
+            @yield('content')
+        </div>
+    </div>
+
+    </div>
+    </div>
 
     <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
