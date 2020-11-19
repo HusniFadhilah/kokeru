@@ -8,6 +8,10 @@
         <div class="main-body">
             <div class="page-wrapper">
                 <div class="page-body">
+                    <div class="text-center">
+                        <h3>Monitoring Kebersihan dan Kerapihan Ruang Gedung A</h3>
+                        <p>Hari Kamis Tanggal 12 November 2020 jam 07.11 WIB</p>
+                    </div>
                     <div class="row">
                         <div class="col-md-6 col-xl-3">
                             <a href="">
