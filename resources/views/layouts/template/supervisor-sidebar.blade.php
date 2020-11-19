@@ -53,15 +53,15 @@
 
                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Home</div>
                 <ul class="pcoded-item pcoded-left-item">
-                    <li class="active">
-                        <a href="">
+                    <li class="{{ request()->is('supervisor/dashboard') ? 'active' : ''}}">
+                        <a href="{{ route('supervisor.index') }}">
                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="">
+                    <li class="{{ request()->is('supervisor/room') ? 'active' : ''}}">
+                        <a href="{{ route('supervisor.room') }}">
                             <span class="pcoded-micon"><i class="ti-location-pin"></i><b>R</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Ruangan</span>
                             <span class="pcoded-mcaret"></span>
@@ -71,6 +71,13 @@
                         <a href="">
                             <span class="pcoded-micon"><i class="ti-user"></i><b>CS</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Cleaning Service</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="">
+                            <span class="pcoded-micon"><i class="ti-clipboard"></i><b>L</b></span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Laporan</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>

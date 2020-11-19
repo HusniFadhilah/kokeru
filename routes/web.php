@@ -27,6 +27,9 @@ Route::prefix('/supervisor')
     // ->middleware('role:supervisor')
     ->group(function () {
         Route::get('/dashboard', [SupervisorController::class, 'index'])->name('index');
+        Route::get('/room', function () {
+            return view('supervisor.room');
+        })->name('room');
     });
 
 //Functions accessed by only cs users
