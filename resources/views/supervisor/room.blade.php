@@ -96,7 +96,7 @@
                                     <div class="card-block">
                                         <h1 class="m-b-20">R.32</h1>
                                         <p>BELUM</p>
-                                        <h6><span class="ti-user mr-2"></span>Deni Maulana</h6>
+                                        <h6><span class="ti-user mr-2"></span>Dedi Kurniadi</h6>
                                     </div>
                                 </div>
                             </a>
