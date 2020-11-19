@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Register - KoKeRu')
+
 @section('content')
 <!-- Pre-loader start -->
 <div class="theme-loader">

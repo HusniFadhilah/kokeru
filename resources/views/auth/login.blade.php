@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+@section('title', 'Login - KoKeRu')
+
 @section('content')
 <!-- Pre-loader start -->
 <div class="theme-loader">
@@ -40,8 +42,6 @@
                                     <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign in</button>
                                 </div>
                             </div>
-
-
                         </div>
                     </form>
                     <!-- end of form -->
