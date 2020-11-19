@@ -40,6 +40,3 @@ Route::prefix('/cs')
     ->group(function () {
         Route::get('/dashboard', [CsController::class, 'index'])->name('index');
     });
-
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
