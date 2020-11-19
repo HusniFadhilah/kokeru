@@ -32,6 +32,7 @@
 
 <body class="">
 
+    @include('layouts/template/supervisor-sidebar')
     @yield('content')
 
     <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
