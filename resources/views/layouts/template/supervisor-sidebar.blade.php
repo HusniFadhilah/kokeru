@@ -51,7 +51,7 @@
             <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
             <div class="pcoded-inner-navbar main-menu">
 
-                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Home</div>
+                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Home 1</div>
                 <ul class="pcoded-item pcoded-left-item">
                     <li class="{{ request()->is('supervisor/dashboard') ? 'active' : ''}}">
                         <a href="{{ route('supervisor.index') }}">
