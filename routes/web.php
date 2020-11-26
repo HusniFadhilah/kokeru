@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Supervisor\SupervisorController;
 use App\Http\Controllers\Cs\CsController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\{Auth, Route};
 
 /*
 |--------------------------------------------------------------------------
@@ -18,25 +18,30 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-//Functions accessed by only supervisor users
-Route::prefix('/supervisor')
-    ->namespace('Supervisor')
-    ->name('supervisor.')
-    // ->middleware('role:supervisor')
-    ->group(function () {
-        Route::get('/dashboard', [SupervisorController::class, 'index'])->name('index');
-        Route::get('/room', function () {
-            return view('supervisor.room');
-        })->name('room');
-    });
 
-//Functions accessed by only cs users
-Route::prefix('/cs')
-    ->namespace('Cs')
-    ->name('cs.')
-    // ->middleware('role:cs')
-    ->group(function () {
-        Route::get('/dashboard', [CsController::class, 'index'])->name('index');
-    });
+// Functions accessed by only authenticated users
+Route::group(['middleware' => 'auth'], function () {
+
+    //Functions accessed by only supervisor users
+    Route::prefix('/supervisor')
+        ->namespace('Supervisor')
+        ->name('supervisor.')
+        ->middleware('role:Supervisor')
+        ->group(function () {
+            Route::get('/', [SupervisorController::class, 'index'])->name('index');
+            Route::get('/room', function () {
+                return view('supervisor.room');
+            })->name('room');
+        });
+
+    //Functions accessed by only cs users
+    Route::prefix('/cs')
+        ->namespace('Cs')
+        ->name('cs.')
+        ->middleware('role:CS')
+        ->group(function () {
+            Route::get('/', [CsController::class, 'index'])->name('index');
+        });
+});
