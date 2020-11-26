@@ -3,6 +3,7 @@
 use App\Http\Controllers\Supervisor\SupervisorController;
 use App\Http\Controllers\Cs\CsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\{Auth, Route};
 
 /*
