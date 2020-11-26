@@ -18,8 +18,8 @@
             <ul class="nav-right">
                 <li class="user-profile header-notification">
                     <a href="#!">
-                        <img src="https://ui-avatars.com/api/?name=Supervisor" class="img-radius" alt="User-Profile-Image">
-                        <span>Supervisor</span>
+                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}" class="img-radius" alt="User-Profile-Image">
+                        <span>{{ Auth::user()->name }}</span>
                         <i class="ti-angle-down"></i>
                     </a>
                     <ul class="show-notification profile-notification">
@@ -51,7 +51,7 @@
             <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
             <div class="pcoded-inner-navbar main-menu">
 
-                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Home 1</div>
+                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Home</div>
                 <ul class="pcoded-item pcoded-left-item">
                     <li class="{{ request()->is('supervisor/dashboard') ? 'active' : ''}}">
                         <a href="{{ route('supervisor.index') }}">
@@ -89,8 +89,8 @@
                         </a>
                     </li>
                     <li class="">
-                        <a href="{{ route('login') }}">
-                            <span class="pcoded-micon"><i class="ti-share-alt"></i><b>S</b></span>
+                        <a href="{{ route('logout') }}">
+                            <span class="pcoded-micon"><i class="ti-share-alt"></i><b>L</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Logout</span>
                             <span class="pcoded-mcaret"></span>
                         </a>

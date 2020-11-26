@@ -42,7 +42,11 @@
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
+            @if(Auth::user()->hasRole('Supervisor'))
             @include('layouts/template/supervisor-sidebar')
+            @elseif(Auth::user()->hasRole('CS'))
+            @include('layouts/template/cs-sidebar')
+            @endif
             @yield('content')
         </div>
     </div>

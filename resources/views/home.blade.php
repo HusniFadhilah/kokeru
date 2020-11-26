@@ -9,12 +9,17 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    @auth
+                    {{ __('Kamu telah berhasil login!') }}
+                    @endauth
+                    @guest
+                    {{ __('Selamat datang di KoKeRu!') }}
+                    @endguest
                 </div>
             </div>
         </div>
