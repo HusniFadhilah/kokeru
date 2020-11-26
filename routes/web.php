@@ -24,6 +24,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Functions accessed by only authenticated users
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
     //Functions accessed by only supervisor users
     Route::prefix('/supervisor')
         ->namespace('Supervisor')
