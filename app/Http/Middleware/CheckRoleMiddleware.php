@@ -15,15 +15,13 @@ class CheckRoleMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$role)
     {
         $user = Auth::user();
 
-        foreach ($roles as $role) {
-            // Check if user has the role This check will depend on how your roles are set up
-            if ($user->hasRole($role))
-                return $next($request);
-        }
+        // Check if user has the role This check will depend on how your roles are set up
+        if ($user->hasRole($role))
+            return $next($request);
 
         if ($request->isMethod('get')) {
             abort(401);
