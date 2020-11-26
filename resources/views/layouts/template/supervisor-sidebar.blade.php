@@ -35,7 +35,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('login') }}">
+                            <a href="{{ route('logout') }}">
                                 <i class="ti-layout-sidebar-left"></i> Logout
                             </a>
                         </li>
