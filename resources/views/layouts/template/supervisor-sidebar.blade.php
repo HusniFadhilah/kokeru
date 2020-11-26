@@ -67,8 +67,8 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="">
+                    <li class="{{ request()->is('supervisor/cs') ? 'active' : ''}}">
+                        <a href="{{ route('supervisor.cs') }}">
                             <span class="pcoded-micon"><i class="ti-user"></i><b>CS</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Cleaning Service</span>
                             <span class="pcoded-mcaret"></span>

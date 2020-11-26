@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Supervisor\SupervisorController;
+use App\Http\Controllers\Supervisor\{SupervisorController};
 use App\Http\Controllers\Cs\CsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
@@ -37,6 +37,16 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/room', function () {
                 return view('supervisor.room');
             })->name('room');
+
+            // Handle CRUD CS
+            Route::resource('/cs', CrudCsController::class, [
+                'names' => [
+                    'index' => 'cs',
+                    'create' => 'cs.create',
+                    'store' => 'cs.store',
+                    'destroy' => 'cs.delete'
+                ]
+            ]);
         });
 
     //Functions accessed by only cs users

@@ -28,6 +28,9 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
+
+    <!-- Data Tables -->
+    <link href="https://hm.if.fsm.undip.ac.id/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body class="">
@@ -54,6 +57,8 @@
     </div>
     </div>
 
+    <div class="flash-data" data-text="{{ session()->get('text')  }}" data-title="{{ session()->get('title')  }}" data-icon="{{ session()->get('icon') }}"></div>
+
     <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js') }}"></script>
@@ -77,6 +82,72 @@
     <script src="{{ asset('assets/js/vartical-demo.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
+    <!-- SweetAlert -->
+    <script src="https://hm.if.fsm.undip.ac.id/assets/js/sweetalert2.all.min.js"></script>
+
+    <!-- Data Tables -->
+    <script src="https://hm.if.fsm.undip.ac.id/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://hm.if.fsm.undip.ac.id/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ajaxStart(function() {
+            Pace.restart();
+        });
+        $(document).ready(function() {
+            $('.datatable').DataTable({});
+            $('.texteditor').ckeditor();
+        });
+
+    </script>
+    <script type="text/javascript">
+        const textflashData = $('.flash-data').data('text');
+        const titleflashData = $('.flash-data').data('title');
+        const iconflashData = $('.flash-data').data('icon');
+
+        if (textflashData && titleflashData && iconflashData) {
+            Swal.fire({
+                title: titleflashData
+                , text: textflashData
+                , icon: iconflashData
+            });
+        }
+
+        $('.tombol-hapus').on('click', function(e) {
+            e.preventDefault();
+            const textflashData = $(this).data('text');
+            const href = $(this).attr('href');
+            const form = document.getElementById('delete-form');
+            Swal.fire({
+                title: 'Apakah Anda yakin?'
+                , text: 'Data ' + textflashData + ' ini akan dihapus'
+                , icon: 'warning'
+                , showCancelButton: true
+                , confirmButtonColor: '#3085d6'
+                , cancelButtonColor: '#d33'
+                , confirmButtonText: 'Ya, hapus data!'
+            }).then((result) => {
+                if (result.value) {
+                    form.action = href;
+                    form.submit();
+                }
+            });
+        });
+
+        function previewImg() {
+            const gambar = document.querySelector('#picture_path');
+            const label_gambar = document.querySelector('.custom-file-label');
+            const preview_gambar = document.querySelector('.img-preview');
+
+            label_gambar.textContent = gambar.files[0].name;
+            const file_gambar = new FileReader();
+            file_gambar.readAsDataURL(gambar.files[0]);
+
+            file_gambar.onload = function(e) {
+                preview_gambar.src = e.target.result;
+            }
+        }
+
+    </script>
 </body>
 
 </html>
