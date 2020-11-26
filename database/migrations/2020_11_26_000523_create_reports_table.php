@@ -24,7 +24,6 @@ class CreateReportsTable extends Migration
             $table->string('file_3');
             $table->string('file_4');
             $table->string('file_5');
-            $table->string('file_5');
             $table->boolean('status')->comment('0-belum,1-sudah');
             $table->timestamps();
         });

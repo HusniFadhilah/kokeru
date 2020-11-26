@@ -17,7 +17,6 @@ class CreateSchedulesTable extends Migration
             $table->id();
             $table->foreignId('cs_id');
             $table->foreignId('room_id');
-            $table->foreignId('room_id');
             $table->dateTime('date_time');
             $table->timestamps();
         });
