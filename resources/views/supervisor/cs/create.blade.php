@@ -13,7 +13,7 @@
                     <div class="card tabs-card">
                         <div class="card-block">
                             <div class="container">
-                                <form action="{{ route('supervisor.karyawan.store') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('supervisor.cs.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="sub-title">Tambah Data Karyawan</h4>
 
@@ -79,7 +79,7 @@
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Tambah</button>
-                                        <a href="{{ route('supervisor.karyawan.data') }}" id="back" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
+                                        <a href="{{ route('supervisor.cs.data') }}" id="back" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
                                     </div>
                                 </form>
                             </div>

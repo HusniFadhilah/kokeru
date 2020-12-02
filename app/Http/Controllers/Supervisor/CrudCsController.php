@@ -11,19 +11,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
-class CrudKaryawanController extends Controller
+class CrudCsController extends Controller
 {
 
     public function index()
     {
         $users = User::where('role_id', 2)->get();
-        return view('supervisor.karyawan.index', compact('users'));
+        return view('supervisor.cs.index', compact('users'));
     }
 
     public function create()
     {
         $role = Role::find(2);
-        return view('supervisor.karyawan.create', compact('role'));
+        return view('supervisor.cs.create', compact('role'));
     }
 
     public function store(Request $request)
@@ -43,8 +43,8 @@ class CrudKaryawanController extends Controller
 
         User::create($attr);
 
-        Fungsi::sweetalert('Karyawan berhasil ditambahkan', 'success', 'Berhasil!');
-        return redirect(route('supervisor.karyawan.data'));
+        Fungsi::sweetalert('Cleaning Service berhasil ditambahkan', 'success', 'Berhasil!');
+        return redirect(route('supervisor.cs.data'));
     }
 
     /**
@@ -61,7 +61,7 @@ class CrudKaryawanController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('supervisor.karyawan.edit', compact('user'));
+        return view('supervisor.cs.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
@@ -83,8 +83,8 @@ class CrudKaryawanController extends Controller
         }
 
         $user->update($attr);
-        Fungsi::sweetalert('Karyawan berhasil diupdate', 'success', 'Berhasil!');
-        return redirect(route('supervisor.karyawan.data'));
+        Fungsi::sweetalert('Cleaning Service berhasil diupdate', 'success', 'Berhasil!');
+        return redirect(route('supervisor.cs.data'));
     }
 
     public function destroy($id)
@@ -98,7 +98,7 @@ class CrudKaryawanController extends Controller
         // ]);
 
         $user->delete();
-        Fungsi::sweetalert('Karyawan berhasil dihapus', 'success', 'Berhasil!');
-        return redirect()->route('supervisor.karyawan.data');
+        Fungsi::sweetalert('Cleaning Service berhasil dihapus', 'success', 'Berhasil!');
+        return redirect()->route('supervisor.cs.data');
     }
 }

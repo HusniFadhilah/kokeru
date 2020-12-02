@@ -53,7 +53,7 @@
 
                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Home</div>
                 <ul class="pcoded-item pcoded-left-item">
-                    <li class="{{ request()->is('cs/dashboard') ? 'active' : ''}}">
+                    <li class="{{ request()->is('cs') ? 'active' : ''}}">
                         <a href="{{ route('cs.index') }}">
                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>

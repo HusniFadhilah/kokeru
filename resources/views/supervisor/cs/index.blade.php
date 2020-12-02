@@ -13,7 +13,7 @@
 
                         <!-- tabs card start -->
                         <div class="col-sm-12">
-                            <a href="{{ route('supervisor.karyawan.create') }}" class="btn btn-primary mb-3"><i class="fa fa-plus mr-2"></i>Tambah Karyawan Baru</a>
+                            <a href="{{ route('supervisor.cs.create') }}" class="btn btn-primary mb-3"><i class="fa fa-plus mr-2"></i>Tambah Karyawan Baru</a>
                             <div class="card tabs-card">
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -34,8 +34,8 @@
                                                 <td>{{ $user->phone }}</td>
                                                 <td>@isset($user->avatar)<img src="{{ asset('storage/'.$user->avatar) }}" style="max-width:80px">@endisset</td>
                                                 <td>
-                                                    <a href="{{ route('supervisor.karyawan.edit', $user->id) }}" class="btn btn-warning btn-sm" title="Edit Karyawan"><i class="fa fa-edit"></i></a>
-                                                    <a href="{{ route('supervisor.karyawan.delete',$user->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Karyawan" title="Hapus Karyawan"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('supervisor.cs.edit', $user->id) }}" class="btn btn-warning btn-sm" title="Edit Karyawan"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{ route('supervisor.cs.delete',$user->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Karyawan" title="Hapus Karyawan"><i class="fa fa-trash"></i></a>
                                                     <form id="delete-form" action="" method="POST" class="d-none">
                                                         @csrf
                                                         @method('delete')

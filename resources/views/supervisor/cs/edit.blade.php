@@ -11,7 +11,7 @@
                 <div class="page-body">
                     <div class="row">
 
-                        <form action="{{ route('supervisor.karyawan.update',$user->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('supervisor.cs.update',$user->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('patch')
                             <h4 class="sub-title">Edit Data Karyawan</h4>
@@ -66,7 +66,7 @@
 
                             <div class="form-group">
                                 <button type="submit" id="edit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
-                                <a href="{{ route('supervisor.karyawan.data') }}" id="back" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
+                                <a href="{{ route('supervisor.cs.data') }}" id="back" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
                             </div>
                         </form>
 
