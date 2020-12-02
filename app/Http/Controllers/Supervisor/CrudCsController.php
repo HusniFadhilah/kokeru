@@ -47,12 +47,6 @@ class CrudCsController extends Controller
         return redirect(route('supervisor.cs.data'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
@@ -93,9 +87,6 @@ class CrudCsController extends Controller
         if ($user["avatar"] != 'assets/img/user/default.jpg') {
             unlink(storage_path('app/public/' . $user["avatar"]));
         }
-        // $user->update([
-        //     'avatar' => 'assets/img/user/default.jpg'
-        // ]);
 
         $user->delete();
         Fungsi::sweetalert('Cleaning Service berhasil dihapus', 'success', 'Berhasil!');

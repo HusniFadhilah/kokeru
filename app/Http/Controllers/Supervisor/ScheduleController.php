@@ -49,4 +49,33 @@ class ScheduleController extends Controller
         Fungsi::sweetalert('Jadwal berhasil ditambahkan', 'success', 'Berhasil!');
         return redirect(route('supervisor.schedule.data'));
     }
+
+    public function reset()
+    {
+        $schedules = Schedule::all();
+
+        foreach ($schedules as $s) {
+            $id = $s->id;
+            $schedule = new Schedule();
+            $data = [
+                'id' => $id,
+                'date_time' => Carbon::parse('+1 days', 'Asia/Jakarta'),
+            ];
+            $schedule->update($data);
+        }
+
+        $schedules = Schedule::all();
+        foreach ($schedules as $schedule) {
+            Report::create([
+                'cs_id' => $schedule['cs_id'],
+                'room_id' => $schedule['room_id'],
+                'schedule_id' => $schedule['id'],
+                'date_time' => $schedule['date_time'],
+                'status' => 'Belum'
+            ]);
+        }
+
+        Fungsi::sweetalert('Jadwal berhasil direset', 'success', 'Berhasil!');
+        return redirect(route('supervisor.schedule.data'));
+    }
 }
