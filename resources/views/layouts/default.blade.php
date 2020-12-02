@@ -134,11 +134,9 @@
         });
 
         function previewImg() {
-            const gambar = document.querySelector('#picture_path');
-            const label_gambar = document.querySelector('.custom-file-label');
+            const gambar = document.querySelector('#image');
             const preview_gambar = document.querySelector('.img-preview');
 
-            label_gambar.textContent = gambar.files[0].name;
             const file_gambar = new FileReader();
             file_gambar.readAsDataURL(gambar.files[0]);
 

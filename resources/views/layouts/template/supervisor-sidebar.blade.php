@@ -53,7 +53,7 @@
 
                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Home</div>
                 <ul class="pcoded-item pcoded-left-item">
-                    <li class="{{ request()->is('supervisor/dashboard') ? 'active' : ''}}">
+                    <li class="{{ request()->is('supervisor/index') || request()->is('supervisor') ? 'active' : ''}}">
                         <a href="{{ route('supervisor.index') }}">
                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
@@ -67,8 +67,8 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="{{ request()->is('supervisor/cs') ? 'active' : ''}}">
-                        <a href="{{ route('supervisor.cs') }}">
+                    <li class="{{ Request::is('supervisor/karyawan', 'supervisor/karyawan/create', 'supervisor/karyawan/*/edit') ? 'active' : ''}}">
+                        <a href="{{ route('supervisor.karyawan.data') }}">
                             <span class="pcoded-micon"><i class="ti-user"></i><b>CS</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Cleaning Service</span>
                             <span class="pcoded-mcaret"></span>

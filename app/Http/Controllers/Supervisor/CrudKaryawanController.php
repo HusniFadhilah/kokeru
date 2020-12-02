@@ -2,58 +2,74 @@
 
 namespace App\Http\Controllers\Supervisor;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use App\Models\Role;
 use App\Models\User;
 use App\Libraries\Fungsi;
+use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
-class CrudCsController extends Controller
+class CrudKaryawanController extends Controller
 {
+
     public function index()
     {
         $users = User::where('role_id', 2)->get();
-        return view('supervisor.crud_cs.index', compact('users'));
+        return view('supervisor.karyawan.index', compact('users'));
     }
 
     public function create()
     {
-        return view('supervisor.crud_cs.create');
+        $role = Role::find(2);
+        return view('supervisor.karyawan.create', compact('role'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
+            'phone' => ['required', 'max:30'],
             'password' => 'required',
             'avatar' => ['required', 'image'],
         ]);
 
         $attr = $request->all();
-        $attr['role_id'] = 2;
-        $attr['password'] = Hash::make(request('password'));
-
         $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
+        $attr['password'] = Hash::make($request->password);
+        $attr['slug'] = Str::slug($request->name);
 
         User::create($attr);
 
         Fungsi::sweetalert('Karyawan berhasil ditambahkan', 'success', 'Berhasil!');
-        return redirect(route('supervisor.cs'));
+        return redirect(route('supervisor.karyawan.data'));
     }
 
-    public function edit(User $user)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        // dd($user);
-        return view('supervisor.crud_cs.edit', compact('user'));
+        //
     }
 
-    public function update(Request $request, User $user)
+    public function edit($id)
     {
+        $user = User::find($id);
+        return view('supervisor.karyawan.edit', compact('user'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'avatar' => ['required', 'image'],
+            'phone' => ['required', 'max:30'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
         ]);
 
@@ -68,20 +84,21 @@ class CrudCsController extends Controller
 
         $user->update($attr);
         Fungsi::sweetalert('Karyawan berhasil diupdate', 'success', 'Berhasil!');
-        return redirect(route('supervisor.cs'));
+        return redirect(route('supervisor.karyawan.data'));
     }
 
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        // if ($user["avatar"] != 'assets/img/user/default.jpg') {
-        //     unlink(storage_path('app/public/' . $user["avatar"]));
-        // }
+        $user = User::find($id);
+        if ($user["avatar"] != 'assets/img/user/default.jpg') {
+            unlink(storage_path('app/public/' . $user["avatar"]));
+        }
         // $user->update([
         //     'avatar' => 'assets/img/user/default.jpg'
         // ]);
 
         $user->delete();
         Fungsi::sweetalert('Karyawan berhasil dihapus', 'success', 'Berhasil!');
-        return redirect()->route('supervisor.cs');
+        return redirect()->route('supervisor.karyawan.data');
     }
 }

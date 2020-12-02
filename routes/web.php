@@ -35,16 +35,15 @@ Route::group(['middleware' => 'auth'], function () {
         ->group(function () {
             Route::get('/', [SupervisorController::class, 'index'])->name('index');
             Route::get('/room', function () {
-                return view('supervisor.room');
+                return view('room');
             })->name('room');
 
             // Handle CRUD CS
-            Route::resource('/cs', CrudCsController::class, [
+            Route::resource('/karyawan', CrudKaryawanController::class, [
                 'names' => [
-                    'index' => 'cs',
-                    'create' => 'cs.create',
-                    'store' => 'cs.store',
-                    'destroy' => 'cs.delete'
+                    'index' => 'karyawan.data',
+                    'create' => 'karyawan.create',
+                    'destroy' => 'karyawan.delete'
                 ]
             ]);
         });
