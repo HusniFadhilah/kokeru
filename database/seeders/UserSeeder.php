@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $supervisor = [
+        $supervisors = [
             [
                 'role_id' => 1,
                 'name' => 'Alissa Nida Afifah',
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('secret'),
             ]
         ];
-        User::insert($supervisor);
+        User::insert($supervisors);
 
         $cs = [
             [
