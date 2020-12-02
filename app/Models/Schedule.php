@@ -12,4 +12,24 @@ class Schedule extends Model
     protected $fillable = [
         'cs_id', 'room_id', 'date_time'
     ];
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function schedule()
+    {
+        return $this->belongsTo(Schedule::class);
+    }
 }
