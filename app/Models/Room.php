@@ -12,4 +12,14 @@ class Room extends Model
     protected $fillable = [
         'name', 'slug'
     ];
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }

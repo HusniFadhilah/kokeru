@@ -67,8 +67,8 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('supervisor/karyawan', 'supervisor/karyawan/create', 'supervisor/karyawan/*/edit') ? 'active' : ''}}">
-                        <a href="{{ route('supervisor.karyawan.data') }}">
+                    <li class="{{ Request::is('supervisor/cs', 'supervisor/cs/create', 'supervisor/cs/*/edit') ? 'active' : ''}}">
+                        <a href="{{ route('supervisor.cs.data') }}">
                             <span class="pcoded-micon"><i class="ti-user"></i><b>CS</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Cleaning Service</span>
                             <span class="pcoded-mcaret"></span>

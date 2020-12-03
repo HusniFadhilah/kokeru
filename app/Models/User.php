@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return null !== $this->role()->where('name', $role)->first();
     }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }
