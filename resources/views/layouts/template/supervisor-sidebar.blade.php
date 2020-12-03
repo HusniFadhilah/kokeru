@@ -60,8 +60,8 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="{{ request()->is('supervisor/room') ? 'active' : ''}}">
-                        <a href="{{ route('supervisor.room') }}">
+                    <li class="{{ request()->is('supervisor/room', 'supervisor/room/create', 'supervisor/room/*/edit') ? 'active' : ''}}">
+                        <a href="{{ route('supervisor.room.data') }}">
                             <span class="pcoded-micon"><i class="ti-location-pin"></i><b>R</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Ruangan</span>
                             <span class="pcoded-mcaret"></span>
