@@ -17,32 +17,36 @@
                             <div class="card tabs-card">
                                 <div class="card-block">
                                     <div class="table-responsive">
-                                        <table class="table datatable">
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Email</th>
-                                                <th>No HP</th>
-                                                <th>Avatar</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            @foreach($users as $user)
-                                            <tr>
-                                                <th scope="row">{{ $loop->iteration }}</th>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->phone }}</td>
-                                                <td>@isset($user->avatar)<img src="{{ asset('storage/'.$user->avatar) }}" style="max-width:80px">@endisset</td>
-                                                <td>
-                                                    <a href="{{ route('supervisor.cs.edit', $user->id) }}" class="btn btn-warning btn-sm" title="Edit Karyawan"><i class="fa fa-edit"></i></a>
-                                                    <a href="{{ route('supervisor.cs.delete',$user->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Karyawan" title="Hapus Karyawan"><i class="fa fa-trash"></i></a>
-                                                    <form id="delete-form" action="" method="POST" class="d-none">
-                                                        @csrf
-                                                        @method('delete')
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            @endforeach
+                                        <table class="datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>Email</th>
+                                                    <th>No HP</th>
+                                                    <th>Avatar</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($users as $user)
+                                                <tr>
+                                                    <th scope="row">{{ $loop->iteration }}</th>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td>{{ $user->phone }}</td>
+                                                    <td>@isset($user->avatar)<img src="{{ asset('storage/'.$user->avatar) }}" style="max-width:80px">@endisset</td>
+                                                    <td>
+                                                        <a href="{{ route('supervisor.cs.edit', $user->id) }}" class="btn btn-warning btn-sm" title="Edit Karyawan"><i class="fa fa-edit"></i></a>
+                                                        <a href="{{ route('supervisor.cs.delete',$user->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Karyawan" title="Hapus Karyawan"><i class="fa fa-trash"></i></a>
+                                                        <form id="delete-form" action="" method="POST" class="d-none">
+                                                            @csrf
+                                                            @method('delete')
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
