@@ -20,6 +20,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
+    <!-- Data Tables -->
+    <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/themify-icons/themify-icons.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/font-awesome/css/font-awesome.min.css') }}">
@@ -29,8 +31,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
 
-    <!-- Data Tables -->
-    <link href="https://hm.if.fsm.undip.ac.id/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body class="">
@@ -60,6 +60,9 @@
     <div class="flash-data" data-text="{{ session()->get('text')  }}" data-title="{{ session()->get('title')  }}" data-icon="{{ session()->get('icon') }}"></div>
 
     <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
+    <!-- Data Tables -->
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
     <script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -85,9 +88,6 @@
     <!-- SweetAlert -->
     <script src="https://hm.if.fsm.undip.ac.id/assets/js/sweetalert2.all.min.js"></script>
 
-    <!-- Data Tables -->
-    <script src="https://hm.if.fsm.undip.ac.id/assets/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="https://hm.if.fsm.undip.ac.id/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <script type="text/javascript">
         $(document).ajaxStart(function() {
@@ -95,7 +95,6 @@
         });
         $(document).ready(function() {
             $('.datatable').DataTable({});
-            $('.texteditor').ckeditor();
         });
 
     </script>

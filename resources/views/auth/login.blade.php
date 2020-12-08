@@ -21,7 +21,9 @@
                     <form class="md-float-material" method="post" action="{{ route('login') }}">
                         @csrf
                         <div class="text-center">
-                            <h2 class="text-white">KoKeRu</h2>
+                            <a href="{{ route('home') }}">
+                                <h2 class="text-white">KoKeRu</h2>
+                            </a>
                         </div>
                         <div class="auth-box">
                             <div class="row m-b-20">

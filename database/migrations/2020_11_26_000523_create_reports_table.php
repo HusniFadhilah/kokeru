@@ -19,12 +19,12 @@ class CreateReportsTable extends Migration
             $table->foreignId('cs_id');
             $table->foreignId('schedule_id');
             $table->dateTime('date_time');
-            $table->string('file_1');
-            $table->string('file_2');
-            $table->string('file_3');
-            $table->string('file_4');
-            $table->string('file_5');
-            $table->string('video');
+            $table->string('file_1')->nullable();
+            $table->string('file_2')->nullable();
+            $table->string('file_3')->nullable();
+            $table->string('file_4')->nullable();
+            $table->string('file_5')->nullable();
+            $table->string('video')->nullable();
             $table->boolean('status')->comment('0-belum,1-sudah');
             $table->timestamps();
         });

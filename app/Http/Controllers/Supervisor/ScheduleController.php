@@ -14,21 +14,29 @@ use App\Http\Controllers\Controller;
 class ScheduleController extends Controller
 {
 
+    public function index()
+    {
+        $schedules = Schedule::all();
+        return view('supervisor.schedule.index', compact('schedules'));
+    }
+
     public function create()
     {
-        $cs = User::where('role_id', 2)->get()[0];
-        $rooms = Room::all();
-        return view('supervisor.cs.create', compact('cs', 'rooms'));
+        $cs = User::where('role_id', 2)->get();
+        $schedules = Schedule::pluck('room_id')->all();
+        $rooms = Room::whereNotIn('id', $schedules)->select()->get();
+        return view('supervisor.schedule.create', compact('cs', 'rooms'));
     }
 
     public function store(Request $request)
     {
-        $date = Schedule::last();
+        $date = Schedule::latest()->first();
 
         if (empty($date)) {
             $date_now = Carbon::parse('now', 'Asia/Jakarta')->toDateTimeString();
         } else {
-            $date_now = $date['date_time'];
+            // dd($date);
+            $date_now = $date->date_time;
         }
 
         Schedule::create([
@@ -37,13 +45,14 @@ class ScheduleController extends Controller
             'date_time' => $date_now,
         ]);
 
-        $schedule = Schedule::last();
+        $schedule = Schedule::latest()->first();
 
         Report::create([
-            'cs_id' => $schedule['cs_id'],
-            'room_id' => $schedule['room_id'],
-            'date_time' => $schedule['date_time'],
-            'status' => 'Belum'
+            'schedule_id' => $schedule->id,
+            'cs_id' => $schedule->cs_id,
+            'room_id' => $schedule->room_id,
+            'date_time' => $schedule->date_time,
+            'status' => 0
         ]);
 
         Fungsi::sweetalert('Jadwal berhasil ditambahkan', 'success', 'Berhasil!');
@@ -67,11 +76,11 @@ class ScheduleController extends Controller
         $schedules = Schedule::all();
         foreach ($schedules as $schedule) {
             Report::create([
-                'cs_id' => $schedule['cs_id'],
-                'room_id' => $schedule['room_id'],
-                'schedule_id' => $schedule['id'],
-                'date_time' => $schedule['date_time'],
-                'status' => 'Belum'
+                'cs_id' => $schedule->cs_id,
+                'room_id' => $schedule->room_id,
+                'schedule_id' => $schedule->id,
+                'date_time' => $schedule->date_time,
+                'status' => 0
             ]);
         }
 

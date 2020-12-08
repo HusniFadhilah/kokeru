@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Supervisor\{SupervisorController};
+use App\Http\Controllers\Supervisor\{SupervisorController, ScheduleController};
 use App\Http\Controllers\Cs\CsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
@@ -52,6 +52,10 @@ Route::group(['middleware' => 'auth'], function () {
                     'destroy' => 'room.delete'
                 ]
             ]);
+
+            Route::get('/schedule', [ScheduleController::class, 'index'])->name('schedule.data');
+            Route::get('/schedule/create', [ScheduleController::class, 'create'])->name('schedule.create');
+            Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
         });
 
     //Functions accessed by only cs users
