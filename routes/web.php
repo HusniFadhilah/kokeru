@@ -34,12 +34,6 @@ Route::group(['middleware' => 'auth'], function () {
         ->middleware('role:Supervisor')
         ->group(function () {
             Route::get('/', [SupervisorController::class, 'index'])->name('index');
-<<<<<<< HEAD
-=======
-            Route::get('/room', function () {
-                return view('supervisor/room');
-            })->name('room');
->>>>>>> 9833d09f10a360ed283c38e1e04d21cec50a81a3
 
             // Handle CRUD CS
             Route::resource('/cs', CrudCsController::class, [
