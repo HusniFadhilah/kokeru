@@ -3,6 +3,7 @@
 use App\Http\Controllers\Supervisor\{SupervisorController, ScheduleController};
 use App\Http\Controllers\Cs\{CsController, TaskController};
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\{Auth, Route};
 
@@ -58,6 +59,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/schedule/create', [ScheduleController::class, 'create'])->name('schedule.create');
             Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
             Route::post('/schedule/reset', [ScheduleController::class, 'reset'])->name('schedule.reset');
+
+            // Route::get('/', [MonitoringController::class, 'monitor'])->name('schedule.data');
         });
 
     //Functions accessed by only cs users
@@ -73,4 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
             Route::post('/task', [TaskController::class, 'store'])->name('task.store');
         });
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
 });

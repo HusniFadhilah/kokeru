@@ -32,7 +32,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route(Fungsi::get_role_session().'.index') }}">
                             {{ __('Dashboard') }}
-                        </a>
+                        </a> 
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -76,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('profile') }}">
                         <i class="ti-user"></i> Profile
                     </a>
                 </li>
