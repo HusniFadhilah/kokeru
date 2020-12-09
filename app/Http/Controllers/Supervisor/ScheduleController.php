@@ -30,14 +30,7 @@ class ScheduleController extends Controller
 
     public function store(Request $request)
     {
-        $date = Schedule::latest()->first();
-
-        if (empty($date)) {
-            $date_now = Carbon::parse('now', 'Asia/Jakarta')->toDateTimeString();
-        } else {
-            // dd($date);
-            $date_now = $date->date_time;
-        }
+        $date_now = Carbon::parse('now', 'Asia/Jakarta')->toDateTimeString();
 
         Schedule::create([
             'cs_id' => $request->cs_id,

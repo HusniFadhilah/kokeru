@@ -31,8 +31,8 @@
                                                     <th scope="row">{{ $loop->iteration }}</th>
                                                     <td>{{ $room->name }}</td>
                                                     <td>
-                                                        <a href="{{ route('supervisor.room.edit', $room->id) }}" class="btn btn-warning btn-sm" title="Edit Ruangan"><i class="fa fa-edit"></i></a>
-                                                        <a href="{{ route('supervisor.room.delete',$room->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Ruangan" title="Hapus Ruangan"><i class="fa fa-trash"></i></a>
+                                                        <a href="{{ route('supervisor.room.edit', $room->id) }}" class="btn btn-warning btn-sm" title="Edit Ruangan"><i class="fa fa-edit"></i>Edit</a>
+                                                        <a href="{{ route('supervisor.room.delete',$room->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Ruangan" title="Hapus Ruangan"><i class="fa fa-trash"></i>Hapus</a>
                                                         <form id="delete-form" action="" method="POST" class="d-none">
                                                             @csrf
                                                             @method('delete')

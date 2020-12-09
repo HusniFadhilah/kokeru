@@ -29,7 +29,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="{{ route('profile') }}">
                                 <i class="ti-user"></i> Profile
                             </a>
                         </li>

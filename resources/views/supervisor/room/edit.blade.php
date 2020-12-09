@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Edit Cleaning Service')
+@section('title', 'Edit Ruangan')
 
 @section('content')
 <div class="pcoded-content">
@@ -14,7 +14,7 @@
                         <form action="{{ route('supervisor.room.update',$room->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('patch')
-                            <h4 class="sub-title">Edit Data Karyawan</h4>
+                            <h4 class="sub-title">Edit Ruangan</h4>
 
                             <div class="form-group row">
                                 <label class="col-lg-5 col-form-label">Nama Ruangan</label>
