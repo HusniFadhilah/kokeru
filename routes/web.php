@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Supervisor\{SupervisorController, ScheduleController};
-use App\Http\Controllers\Cs\CsController;
+use App\Http\Controllers\Cs\{CsController, TaskController};
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\{Auth, Route};
@@ -53,9 +53,11 @@ Route::group(['middleware' => 'auth'], function () {
                 ]
             ]);
 
+            //Handle Store Schedule
             Route::get('/schedule', [ScheduleController::class, 'index'])->name('schedule.data');
             Route::get('/schedule/create', [ScheduleController::class, 'create'])->name('schedule.create');
             Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
+            Route::post('/schedule/reset', [ScheduleController::class, 'reset'])->name('schedule.reset');
         });
 
     //Functions accessed by only cs users
@@ -65,5 +67,10 @@ Route::group(['middleware' => 'auth'], function () {
         ->middleware('role:CS')
         ->group(function () {
             Route::get('/', [CsController::class, 'index'])->name('index');
+
+            //Handle Store Task Cleaning
+            Route::get('/task', [TaskController::class, 'index'])->name('task.data');
+            Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
+            Route::post('/task', [TaskController::class, 'store'])->name('task.store');
         });
 });

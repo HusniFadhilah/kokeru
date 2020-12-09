@@ -11,9 +11,10 @@
         <div class="page-body">
             <div class="text-center">
                 <h3>Monitoring Kebersihan dan Kerapihan Ruang Gedung A</h3>
-                <p>Hari Kamis Tanggal 12 November 2020 jam 07.11 WIB</p>
+                <p>Hari {{ Date::hari(now()) }} Tanggal 12 November 2020 jam {{ Date::pukul(now()) }} WIB</p>
             </div>
             <div class="row">
+                @forelse($reports_today as $report)
                 <div class="col-md-6 col-xl-3">
                     <a href="">
                         <div class="card bg-c-green order-card">
@@ -25,7 +26,14 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6 col-xl-3">
+                @empty
+                <div class="col-12">
+                    <div class="btn btn-block alert alert-dark" role="alert">
+                        No Data
+                    </div>
+                </div>
+                @endforelse
+                {{-- <div class="col-md-6 col-xl-3">
                     <a href="">
                         <div class="card bg-c-pink order-card">
                             <div class="card-block">
@@ -101,7 +109,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

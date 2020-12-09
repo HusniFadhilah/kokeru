@@ -30,14 +30,15 @@ class ScheduleController extends Controller
 
     public function store(Request $request)
     {
-        $date = Schedule::latest()->first();
+        $date_now = Carbon::parse('now', 'Asia/Jakarta')->toDateTimeString();
+        // $date = Schedule::latest()->first();
 
-        if (empty($date)) {
-            $date_now = Carbon::parse('now', 'Asia/Jakarta')->toDateTimeString();
-        } else {
-            // dd($date);
-            $date_now = $date->date_time;
-        }
+        // if (empty($date)) {
+        //     $date_now = Carbon::parse('now', 'Asia/Jakarta')->toDateTimeString();
+        // } else {
+        //     // dd($date);
+        //     $date_now = $date->date_time;
+        // }
 
         Schedule::create([
             'cs_id' => $request->cs_id,
@@ -65,15 +66,13 @@ class ScheduleController extends Controller
 
         foreach ($schedules as $s) {
             $id = $s->id;
-            $schedule = new Schedule();
             $data = [
                 'id' => $id,
                 'date_time' => Carbon::parse('+1 days', 'Asia/Jakarta'),
             ];
-            $schedule->update($data);
+            $s->update($data);
         }
 
-        $schedules = Schedule::all();
         foreach ($schedules as $schedule) {
             Report::create([
                 'cs_id' => $schedule->cs_id,

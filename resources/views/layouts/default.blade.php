@@ -88,6 +88,30 @@
     <!-- SweetAlert -->
     <script src="https://hm.if.fsm.undip.ac.id/assets/js/sweetalert2.all.min.js"></script>
 
+    {{-- <script>
+        const finish = document.querySelector('input[name=finish]').value;
+        var countDownDate = new Date(finish);
+
+        countDownDate = new Date(countDownDate);
+
+        var x = setInterval(function() {
+            var new = new Date().getTime();
+
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor(distance / (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
+            var minutes = Math.floor(distance / (1000 * 60 * 60)) / (1000 * 60);
+            var seconds = Math.floor(distance / (1000 * 60)) / 1000;
+            document.getElementById("hitung").innerHTML = days + " : " + hours + " : " + minutes + " : " + seconds + "";
+
+            if (distance < 0) {
+                clearInterval(x);
+                window.location = "/schedule/reset";
+            }
+        }, 1000);
+
+    </script> --}}
 
     <script type="text/javascript">
         $(document).ajaxStart(function() {
