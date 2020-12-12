@@ -74,7 +74,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+<div class="modal fade" id="modal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,17 +87,27 @@
                 <h6>Bukti Foto</h6>
                 <div class="row">
                     @for($i=1;$i<=5;$i++) <div class="col-lg-4">
-                        <img src="" class="img-thumbnail" style="height: 190px;width:100%; object-fit:cover;" id="file{{ $i }}">
+                        <div class="item web">
+                            <a href="" class="item-wrap image-popup" id="link{{ $i }}">
+                                <span class="fa fa-search"></span>
+                                <img src="" class="img-thumbnail" style="height: 190px;width:100%; object-fit:cover;" id="file{{ $i }}">
+                            </a>
+                        </div>
                 </div>
                 @endfor
             </div>
             <h6 class="mt-4 bukti-video">Bukti Video</h6>
             <div class="row bukti-video">
                 <div class="col-12">
-                    <video style="width:100%" *ngIf="src" controls>
-                        <source [src]="" id="video" [type]="video/mp4">
-                        Your browser does not support HTML5 video.
-                    </video>
+                    <div class="item web">
+                        <a href="" class="item-wrap popup-vimeo" id="videolink">
+                            <span class="fa fa-search"></span>
+                            <video style="width:100%" *ngIf="src" controls>
+                                <source [src]="" id="video" [type]="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
