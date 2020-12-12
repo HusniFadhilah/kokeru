@@ -99,21 +99,6 @@ class Date
         }
     }
 
-    public static function hari($date)
-    {
-        $day = date('D', strtotime($date));
-        $dayList = array(
-            'Sun' => 'Minggu',
-            'Mon' => 'Senin',
-            'Tue' => 'Selasa',
-            'Wed' => 'Rabu',
-            'Thu' => 'Kamis',
-            'Fri' => 'Jumat',
-            'Sat' => 'Sabtu'
-        );
-        return $dayList[$day];
-    }
-    
 
     public static function bulan_angka($date)
     {
