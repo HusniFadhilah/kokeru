@@ -50,6 +50,9 @@
                                         </table>
                                     </div>
                                 </div>
+                                {{-- @if($reset_date != '0000-00-00' || $reset_date != null)
+                                <input type="hidden" name="finish" value="{{ $reset_date }}">
+                                @endif --}}
                             </div>
                         </div>
                         <!-- tabs card end -->

@@ -14,7 +14,7 @@
                 <p>Hari {{ Date::hari(now()) }} {{ Date::tanggal(now()) }} {{ Date::Bulan(now()) }} {{ Date::tahun(now()) }} jam {{ Date::pukul(now()) }} WIB</p>
             </div>
             <div class="row">
-                @foreach($report as $rep)
+                @foreach($reports_today as $rep)
                 <div class="col-md-6 col-xl-3">
                     <a href="">
                         <div class="card bg-c-{{ $rep->status==0? 'pink':'green'}} order-card">

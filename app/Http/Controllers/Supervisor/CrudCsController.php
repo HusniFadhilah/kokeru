@@ -33,11 +33,15 @@ class CrudCsController extends Controller
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
             'phone' => ['required', 'max:30'],
             'password' => 'required',
-            'avatar' => ['required', 'image'],
+            'avatar' => ['image'],
         ]);
 
         $attr = $request->all();
-        $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
+        if ($request->file('avatar')) {
+            $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
+        } else {
+            $attr['avatar'] = 'assets/img/user/default.jpg';
+        }
         $attr['password'] = Hash::make($request->password);
         $attr['slug'] = Str::slug($request->name);
 

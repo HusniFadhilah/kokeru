@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -30,6 +31,7 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
+    <link rel="stylesheet" href="https://hm.if.fsm.undip.ac.id/assets/css/magnific-popup.css">
 
 </head>
 
@@ -84,11 +86,12 @@
     <script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
     <script src="{{ asset('assets/js/vartical-demo.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="https://hm.if.fsm.undip.ac.id/assets/js/jquery.magnific-popup.min.js"></script>
 
     <!-- SweetAlert -->
     <script src="https://hm.if.fsm.undip.ac.id/assets/js/sweetalert2.all.min.js"></script>
 
-    {{-- <script>
+    <script>
         const finish = document.querySelector('input[name=finish]').value;
         var countDownDate = new Date(finish);
 
@@ -111,7 +114,7 @@
             }
         }, 1000);
 
-    </script> --}}
+    </script>
 
     <script type="text/javascript">
         $(document).ajaxStart(function() {
@@ -168,7 +171,113 @@
             }
         }
 
+        function previewImages() {
+
+            var preview = document.querySelector('#preview');
+
+
+            if (this.files.length <= 5) {
+                [].forEach.call(this.files, readAndPreview);
+            } else {
+                alert('Maksimum 5 file yang dapat diupload!');
+            }
+
+            function readAndPreview(file) {
+
+                // Make sure `file.name` matches our extensions criteria
+                if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                    return alert(file.name + " is not an image");
+                } else {
+                    var reader = new FileReader();
+
+                    reader.addEventListener("load", function() {
+                        var image = new Image();
+                        image.style.maxHeight = "100px";
+                        image.style.objectFit = "cover";
+                        image.title = file.name;
+                        image.src = this.result;
+                        image.className = "col-lg-2 col-md-4 col-4 img-thumbnail";
+                        preview.appendChild(image);
+                    });
+
+                    reader.readAsDataURL(file);
+                }
+
+            }
+
+        }
+
+        document.querySelector('#file-input').addEventListener("change", previewImages);
+        $(document).on("change", "#video", function(evt) {
+            var $source = $('#video_here');
+            $source[0].src = URL.createObjectURL(this.files[0]);
+            $source.parent()[0].load();
+        });
+
     </script>
+    <script>
+        $(document).ready(function() {
+
+            $('.trigger-modal').click(function() {
+                let file1 = $(this).data('file1');
+                let file2 = $(this).data('file2');
+                let file3 = $(this).data('file3');
+                let file4 = $(this).data('file4');
+                let file5 = $(this).data('file5');
+                let video = $(this).data('video');
+                let $source = $('.modal-body #video');
+
+
+                if (video.includes('video')) {
+                    $(".modal-body #video").attr('src', video);
+                    $(".modal-body #video, .modal-body .bukti-video, .modal-body .bukti-video video").show();
+                    $(".modal-body #video").show();
+                } else {
+                    $(".modal-body #video").attr('src', '');
+                    $(".modal-body #video").hide();
+                    $(".modal-body #video, .modal-body .bukti-video, .modal-body .bukti-video video").hide();
+                }
+                if (file1.includes('img')) {
+                    $(".modal-body #file1").attr('src', file1);
+                    $(".modal-body #file1").show();
+                } else {
+                    $(".modal-body #file1").attr('src', '');
+                    $(".modal-body #file1").hide();
+                }
+                if (file2.includes('img')) {
+                    $(".modal-body #file2").attr('src', file2);
+                    $(".modal-body #file2").show();
+                } else {
+                    $(".modal-body #file2").attr('src', '');
+                    $(".modal-body #file2").hide();
+                }
+                if (file3.includes('img')) {
+                    $(".modal-body #file3").attr('src', file3);
+                    $(".modal-body #file3").show();
+                } else {
+                    $(".modal-body #file3").attr('src', '');
+                    $(".modal-body #file3").hide();
+                }
+                if (file4.includes('img')) {
+                    $(".modal-body #file4").attr('src', file4);
+                    $(".modal-body #file4").show();
+                } else {
+                    $(".modal-body #file4").attr('src', '');
+                    $(".modal-body #file4").hide();
+                }
+                if (file5.includes('img')) {
+                    $(".modal-body #file5").attr('src', file5);
+                    $(".modal-body #file5").show();
+                } else {
+                    $(".modal-body #file5").attr('src', '');
+                    $(".modal-body #file5").hide();
+                }
+
+            })
+        });
+
+    </script>
+
 </body>
 
 </html>

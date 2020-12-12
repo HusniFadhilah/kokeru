@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Supervisor\{SupervisorController, ScheduleController};
-use App\Http\Controllers\Cs\{CsController, TaskController};
+use App\Http\Controllers\Cs\{CsController};
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
@@ -72,9 +72,17 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/', [CsController::class, 'index'])->name('index');
 
             //Handle Store Task Cleaning
-            Route::get('/task', [TaskController::class, 'index'])->name('task.data');
-            Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
-            Route::post('/task', [TaskController::class, 'store'])->name('task.store');
+            Route::resource('/report', ReportController::class, [
+                'names' => [
+                    'index' => 'report.data',
+                    'create' => 'report.create',
+                    'update' => 'report.update',
+                    'destroy' => 'report.delete'
+                ]
+            ]);
+            // Route::get('/task', [TaskController::class, 'index'])->name('task.data');
+            // Route::get('/task/edit/{id}', [TaskController::class, 'edit'])->name('task.edit');
+            // Route::post('/task/update', [TaskController::class, 'update'])->name('task.update');
         });
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
