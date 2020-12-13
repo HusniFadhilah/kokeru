@@ -1,3 +1,60 @@
+<!-- Modal -->
+<div class="modal fade" id="modal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Detail Bukti</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <span>
+                            <h6>Pengirim: </h6><span id="cs"></span>
+                        </span>
+                    </div>
+                    <div class="col-6">
+                        <span>
+                            <h6>Ruangan: </h6><span id="room"></span>
+                        </span>
+                    </div>
+                </div>
+                <h6 class="mt-4">Bukti Foto</h6>
+                <div class="row">
+                    @for($i=1;$i<=5;$i++) <div class="col-lg-4">
+                        <div class="item web">
+                            <a href="" class="item-wrap image-popup" id="link{{ $i }}">
+                                <span class="fa fa-search"></span>
+                                <img src="" class="img-thumbnail" style="height: 190px;width:100%; object-fit:cover;" id="file{{ $i }}">
+                            </a>
+                        </div>
+                </div>
+                @endfor
+            </div>
+            <h6 class="mt-4 bukti-video">Bukti Video</h6>
+            <div class="row bukti-video">
+                <div class="col-12">
+                    <div class="item web">
+                        <a href="" class="item-wrap popup-vimeo" id="videolink">
+                            <span class="fa fa-search"></span>
+                            <video style="width:100%" *ngIf="src" controls>
+                                <source [src]="" id="video" [type]="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+    </div>
+</div>
+</div>
+
 <div class="flash-data" data-text="{{ session()->get('text')  }}" data-title="{{ session()->get('title')  }}" data-icon="{{ session()->get('icon') }}"></div>
 
 <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
@@ -188,6 +245,8 @@
     $(document).ready(function() {
 
         $('.trigger-modal').click(function() {
+            let cs = $(this).data('cs');
+            let room = $(this).data('room');
             let file1 = $(this).data('file1');
             let file2 = $(this).data('file2');
             let file3 = $(this).data('file3');
@@ -196,7 +255,8 @@
             let video = $(this).data('video');
             let $source = $('.modal-body #video');
 
-
+            $(".modal-body #cs").text(cs);
+            $(".modal-body #room").text(room);
             if (video.includes('video')) {
                 $(".modal-body #videolink").attr('href', video);
                 $(".modal-body #video").attr('src', video);
