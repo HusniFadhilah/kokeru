@@ -22,10 +22,11 @@
             <div class="card-body bg-white border-0">
 			
               <form method="POST" action="{{ route('profile.update', Auth::user()->id) }}" enctype="multipart/form-data">
-              
+
               @csrf
 			  <div class="col-12 text-center">
-				<img src="clon4.jpg" alt="foto profil" width="100" height="100">				
+				<img src="clon4.jpg" alt="foto profil" width="100" height="100"><br>
+        <button class="btn btn-warning btn-sm" title="Edit Karyawan" ><i class="fa fa-edit"></i>Edit Profile</button>				
   			  </div>					
                 <h6 class="heading-small text-muted mb-4">User information</h6>
                 <div class="pl-lg-4">
@@ -54,7 +55,7 @@
                 </div>
                 <hr class="my-4">
                 <div class="col-12 text-right">
-                  <button class="btn btn-warning btn-sm" title="Edit Karyawan" type="submit"><i class="fa fa-edit"></i>Edit</button>
+                  <button class="btn btn-warning btn-sm" title="Edit Karyawan" type="submit"><i class="fa fa-edit"></i>Save Update</button>
                 </div>
                   </div>
                 </div>
