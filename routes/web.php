@@ -75,14 +75,9 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('/report', ReportController::class, [
                 'names' => [
                     'index' => 'report.data',
-                    'create' => 'report.create',
                     'update' => 'report.update',
-                    'destroy' => 'report.delete'
                 ]
             ]);
-            // Route::get('/task', [TaskController::class, 'index'])->name('task.data');
-            // Route::get('/task/edit/{id}', [TaskController::class, 'edit'])->name('task.edit');
-            // Route::post('/task/update', [TaskController::class, 'update'])->name('task.update');
         });
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
