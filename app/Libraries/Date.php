@@ -99,7 +99,6 @@ class Date
         }
     }
 
-
     public static function bulan_angka($date)
     {
         $y = substr($date, 5, 2);

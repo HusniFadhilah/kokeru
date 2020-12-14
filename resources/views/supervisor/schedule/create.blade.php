@@ -13,7 +13,7 @@
                             <div class="container">
                                 <form action="{{ route('supervisor.schedule.store') }}" method="post">
                                     @csrf
-                                    <h4 class="sub-title">Tambah Data Ruangan</h4>
+                                    <h4 class="sub-title">Tambah Jadwal </h4>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Pilih Karyawan</label>
                                         <div class="col-sm-10">

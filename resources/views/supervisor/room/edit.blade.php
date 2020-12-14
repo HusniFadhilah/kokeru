@@ -14,11 +14,7 @@
                         <form action="{{ route('supervisor.room.update',$room->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('patch')
-<<<<<<< HEAD
                             <h4 class="sub-title">Edit Data Ruangan</h4>
-=======
-                            <h4 class="sub-title">Edit Ruangan</h4>
->>>>>>> 4c0da2b11b989049fa24ba4f3c94c70a7c0e3dca
 
                             <div class="form-group row">
                                 <label class="col-lg-5 col-form-label">Nama Ruangan</label>

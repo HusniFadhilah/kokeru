@@ -61,6 +61,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/schedule/reset', [ScheduleController::class, 'reset'])->name('schedule.reset');
 
             // Route::get('/', [MonitoringController::class, 'monitor'])->name('schedule.data');
+            Route::resource('/report', ReportController::class, [
+                'names' => [
+                    'index' => 'report.data',
+                    'export_excel' => 'report.export'
+                ]
+            ]);
         });
 
     //Functions accessed by only cs users

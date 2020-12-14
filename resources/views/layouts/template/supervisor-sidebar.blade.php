@@ -35,8 +35,8 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="">
+                    <li class="request()->is('supervisor/report') ? 'active' : ''}}">
+                        <a href="{{route('supervisor.report.data')}}">
                             <span class="pcoded-micon"><i class="ti-clipboard"></i><b>L</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Laporan</span>
                             <span class="pcoded-mcaret"></span>
