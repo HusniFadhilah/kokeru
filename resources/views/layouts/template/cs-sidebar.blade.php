@@ -14,6 +14,13 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('cs/report', 'cs/report/*/edit') ? 'active' : ''}}">
+                        <a href="{{ route('cs.report.data') }}">
+                            <span class="pcoded-micon"><i class="ti-calendar"></i><b>T</b></span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Tugas</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
                     <li class="">
                         <a href="{{ route('logout') }}">
                             <span class="pcoded-micon"><i class="ti-share-alt"></i><b>L</b></span>

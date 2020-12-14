@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Data - Jadwal')
+@section('title', 'Data - Laporan')
 
 @section('content')
 <div class="pcoded-content">
@@ -13,35 +13,29 @@
 
                         <!-- tabs card start -->
                         <div class="col-sm-12">
-                            <a href="{{ route('supervisor.schedule.create') }}" class="btn btn-primary mb-3"><i class="fa fa-plus mr-2"></i>Tambah Jadwal Baru</a>
-                            <form action="{{ route('supervisor.schedule.reset') }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-danger mb-3"><i class="fa fa-refresh mr-2"></i>Reset Jadwal</button>
-                            </form>
+                            <a href="{{ route('supervisor.report.export') }}" class="btn btn-primary mb-3"><i class="fa fa-download mr-2"></i>Export Excel</a>
+     						<form>
                             <div class="card tabs-card">
                                 <div class="card-block">
                                     <div class="table-responsive">
+                                    	<h3 style="text-align: center">Laporan Kebersihan dan Kerapihan Ruang Gedung A</h3>
+                						<p style="text-align: center">Hari {{ Date::hari(now()) }} {{ Date::tanggal(now()) }} {{ Date::Bulan(now()) }} {{ Date::tahun(now()) }} jam {{ Date::pukul(now()) }} WIB</p><br><br>
                                         <table class="datatable">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Ruangan</th>
                                                     <th>Karyawan</th>
-                                                    <th>Action</th>
+                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($schedules as $schedule)
+                                                @foreach($reports_today as $rp)
                                                 <tr>
                                                     <th scope="row">{{ $loop->iteration }}</th>
-                                                    <td>{{ $schedule->room['name'] }}</td>
-                                                    <td>{{ $schedule->user['name'] }}</td>
-                                                    <td>
-                                                        {{-- <a href="{{ route('supervisor.schedule.edit', $schedule->id) }}" class="btn btn-warning btn-sm" title="Edit Ruangan"><i class="fa fa-edit"></i></a> --}}
-                                                        {{-- <a href="{{ route('supervisor.schedule.delete',$schedule->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Ruangan" title="Hapus Ruangan"><i class="fa fa-trash"></i></a> --}}
-                                                        <form id="delete-form" action="" method="POST" class="d-none">
-                                                            @csrf
-                                                            @method('delete')
+                                                    <td>{{ $rp->room['name'] }}</td>
+                                                    <td>{{ $rp->user['name'] }}</td>
+                                                    <td>{{ $rp->status==0? "BELUM":"SUDAH"}}</td>
                                                         </form>
                                                     </td>
                                                 </tr>
@@ -50,9 +44,6 @@
                                         </table>
                                     </div>
                                 </div>
-                                {{-- @if($reset_date != '0000-00-00' || $reset_date != null)
-                                <input type="hidden" name="finish" value="{{ $reset_date }}">
-                                @endif --}}
                             </div>
                         </div>
                         <!-- tabs card end -->

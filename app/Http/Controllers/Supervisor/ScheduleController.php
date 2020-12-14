@@ -58,15 +58,13 @@ class ScheduleController extends Controller
 
         foreach ($schedules as $s) {
             $id = $s->id;
-            $schedule = new Schedule();
             $data = [
                 'id' => $id,
                 'date_time' => Carbon::parse('+1 days', 'Asia/Jakarta'),
             ];
-            $schedule->update($data);
+            $s->update($data);
         }
 
-        $schedules = Schedule::all();
         foreach ($schedules as $schedule) {
             Report::create([
                 'cs_id' => $schedule->cs_id,

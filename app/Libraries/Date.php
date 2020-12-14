@@ -98,7 +98,6 @@ class Date
                 return "Des";
         }
     }
-    
 
     public static function bulan_angka($date)
     {

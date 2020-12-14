@@ -28,8 +28,4 @@ class Schedule extends Model
         return $this->belongsTo(User::class, 'cs_id', 'id');
     }
 
-    public function schedule()
-    {
-        return $this->belongsTo(Schedule::class);
-    }
 }

@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Exports\ReportExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controllers;
 
 class Report extends Model
 {
