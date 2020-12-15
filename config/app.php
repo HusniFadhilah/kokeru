@@ -178,6 +178,7 @@ return [
         App\Providers\FungsiServiceProvider::class,
         App\Providers\DateServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -233,6 +234,7 @@ return [
         'Fungsi' => App\Libraries\Fungsi::class,
         'Date' => App\Libraries\Date::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
