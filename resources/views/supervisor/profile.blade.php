@@ -1,12 +1,8 @@
 @extends('layouts.default')
 
-@section('title', 'Data - Jadwal')
+@section('title', 'Edit Profile')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
         <div class="main-body">
@@ -15,57 +11,70 @@
                 <div class="page-body">
                     <div class="row">
 
-                  <h3 class="mb-0">Profile</h3>
-                </div>
-              </div>
-            </div>
-            <div class="card-body bg-white border-0">
-			
-              <form method="POST" action="{{ route('profile.update', Auth::user()->id) }}" enctype="multipart/form-data">
+                        <form action="{{ route('profile.update', $users->id) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('post')
+                            <h4 class="sub-title">Edit Profile</h4>
 
-              @csrf
-			  <div class="col-12 text-center">
-				<img src="clon4.jpg" alt="foto profil" width="100" height="100"><br>
-        <button class="btn btn-warning btn-sm" title="Edit Karyawan" ><i class="fa fa-edit"></i>Edit Profile</button>				
-  			  </div>					
-                <h6 class="heading-small text-muted mb-4">User information</h6>
-                <div class="pl-lg-4">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="form-group focused">
-                        <label class="form-control-label" for="input-first-name">Nama</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative"value="{{ old('name', Auth::user()->name) }}">
-                      </div>
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label label-image">Foto Profile</label>
+                                <div class="col-lg-3">
+                                    <img src="{{ url('/storage').('/'.Auth::user()->avatar) }}" class="img-thumbnail img-preview">
+                                </div>
+                                <div class="col-lg-7">
+                                    <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" id="image" onchange="previewImg()">
+                                    @error('avatar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label">Nama</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nama lengkap" value="{{ old('name', Auth::user()->name) }}">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label">Email</label>
+                                <div class="col-lg-10">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Alamat email" value="{{ old('email', Auth::user()->email) }}">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label">No HP</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" placeholder="No HP" value="{{ old('phone', Auth::user()->phone) }}">
+                                    @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <button type="submit" id="edit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
+                            </div>
+                        </form>
+
                     </div>
-                  </div>
-				  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group focused">
-                        <label class="form-control-label" for="input-notelp">No. Telp</label>
-                        <input type="text" id="input-notelp" class="form-control form-control-alternative"value="{{ old('phone', Auth::user()->phone) }}">
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-email">Email</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative"value="{{ old('email', Auth::user()->email) }}">
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <hr class="my-4">
-                <div class="col-12 text-right">
-                  <button class="btn btn-warning btn-sm" title="Edit Karyawan" type="submit"><i class="fa fa-edit"></i>Save Update</button>
-                </div>
-                  </div>
-                </div>
-                
-              </form>
             </div>
-          </div>
         </div>
+    </div>
 </div>
-
-</body>
-</html>
 @endsection

@@ -13,7 +13,7 @@
 
                         <!-- tabs card start -->
                         <div class="col-sm-12">
-                            <a href="{{ route('supervisor.report.export') }}" class="btn btn-primary mb-3"><i class="fa fa-download mr-2"></i>Export Excel</a>
+                            <a href="" class="btn btn-primary mb-3"><i class="fa fa-download mr-2"></i>Export Excel</a>
      						<form>
                             <div class="card tabs-card">
                                 <div class="card-block">

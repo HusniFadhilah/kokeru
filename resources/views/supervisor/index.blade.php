@@ -99,42 +99,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane" id="all" role="tabpanel">
-                                            <div class="table-responsive table-hover">
-                                                <table class="datatable">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>No</th>
-                                                            <th>Nama</th>
-                                                            <th>Ruangan</th>
-                                                            <th>Tanggal</th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach($reports as $report)
-                                                        <tr>
-                                                            <td>{{ $loop->iteration }}</td>
-                                                            <td>{{ $report->user->name }}</td>
-                                                            <td>{{ $report->room->name }}</td>
-                                                            <td>{{ Date::indo_date($report->date_time) }}</td>
-                                                            <td>
-                                                                @if($report->status == 0)
-                                                                <span class="label label-danger">Belum</span>
-                                                                @else
-                                                                <span class="label label-success">Sudah</span>
-                                                                @endif
-                                                            </td>
-                                                            <td><a class="btn btn-sm btn-warning">Edit</a></td>
-                                                        </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-
-
                                     </div>
                                 </div>
                             </div>

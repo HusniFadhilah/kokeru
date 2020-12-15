@@ -91,6 +91,6 @@ Route::group(['middleware' => 'auth'], function () {
             // Route::post('/task/update', [TaskController::class, 'update'])->name('task.update');
         });
 
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.data');
     Route::post('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
 });

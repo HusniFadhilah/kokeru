@@ -66,7 +66,6 @@
 
                             <div class="form-group">
                                 <button type="submit" id="edit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
-                                <a href="{{ route('supervisor.profile.data') }}" id="back" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
                             </div>
                         </form>
 

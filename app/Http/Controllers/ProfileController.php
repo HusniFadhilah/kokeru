@@ -11,13 +11,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
-class ProfileController extends Controller
+class ProfileController extends Controller 
 {
 
-    public function index()
+    public function edit()
     {
-        $users = Auth::user();
-        return view('supervisor.profile', compact('users'));
+        if(Auth::user()){
+            $users = User::find(Auth::user()->id);
+            return view('supervisor.profile', compact('users'));
+        }
     }
 
     public function store(Request $request)
@@ -27,11 +29,15 @@ class ProfileController extends Controller
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
             'phone' => ['required', 'max:30'],
             'password' => 'required',
-            'avatar' => ['required', 'image'],
+            'avatar' => ['image'],
         ]);
 
         $attr = $request->all();
-        $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
+        if ($request->file('avatar')) {
+            $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
+        } else {
+            $attr['avatar'] = 'assets/img/user/default.jpg';
+        }
         $attr['password'] = Hash::make($request->password);
         $attr['slug'] = Str::slug($request->name);
 
@@ -40,13 +46,6 @@ class ProfileController extends Controller
         Fungsi::sweetalert('Profile berhasil diedit', 'success', 'Berhasil!');
         return redirect(route('supervisor.profile.data'));
     }
-
-    public function edit($id)
-    {
-        $user = User::find($id);
-        return view('supervisor.profile.edit', compact('user'));
-    }
-
 
     public function update(Request $request, $id)
     {
