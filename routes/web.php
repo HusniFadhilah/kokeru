@@ -56,7 +56,10 @@ Route::group(['middleware' => 'auth'], function () {
             //Handle Store Schedule
             Route::get('/schedule', [ScheduleController::class, 'index'])->name('schedule.data');
             Route::get('/schedule/create', [ScheduleController::class, 'create'])->name('schedule.create');
-            Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
+            Route::post('/schedule/store', [ScheduleController::class, 'store'])->name('schedule.store');
+            Route::get('/schedule/edit/{schedule}', [ScheduleController::class, 'edit'])->name('schedule.edit');
+            Route::patch('/schedule/update/{schedule}', [ScheduleController::class, 'update'])->name('schedule.update');
+            Route::delete('/schedule/destroy/{schedule}', [ScheduleController::class, 'destroy'])->name('schedule.delete');
             Route::post('/schedule/reset', [ScheduleController::class, 'reset'])->name('schedule.reset');
 
             Route::get('/report', [App\Http\Controllers\Supervisor\ReportController::class, 'index'])->name('report.data');
