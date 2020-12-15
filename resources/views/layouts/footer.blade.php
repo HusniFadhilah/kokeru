@@ -55,6 +55,13 @@
 </div>
 </div>
 
+@if(Fungsi::get_schedule_now() != '0000-00-00' && Fungsi::get_schedule_now() != null)
+<form action="{{ route('schedule.reset') }}" method="post" id="reset-form">
+    @csrf
+    @method('patch')
+    <input type="hidden" name="finish" value="{{ Fungsi::get_schedule_now() }} 09:49:00">
+</form>
+@endif
 <div class="flash-data" data-text="{{ session()->get('text')  }}" data-title="{{ session()->get('title')  }}" data-icon="{{ session()->get('icon') }}"></div>
 
 <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
@@ -85,11 +92,53 @@
 <script src="{{ asset('assets/js/vartical-demo.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
-<script src="https://hm.if.fsm.undip.ac.id/assets/js/js/jquery.fancybox.min.js"></script>
 <!-- SweetAlert -->
 <script src="https://hm.if.fsm.undip.ac.id/assets/js/sweetalert2.all.min.js"></script>
 
+@if(Fungsi::get_schedule_now() != '0000-00-00' && Fungsi::get_schedule_now() != null)
 <script>
+    $(".main-menu").mCustomScrollbar({
+        setTop: "1px"
+        , setHeight: "calc(100% - 120px)"
+    , });
+
+</script>
+@else
+<script>
+    $(".main-menu").mCustomScrollbar({
+        setTop: "1px"
+        , setHeight: "calc(100%)"
+    , });
+
+</script>
+@endif
+<script>
+    const formreset = document.getElementById('reset-form');
+    const finish = document.querySelector('input[name=finish]').value;
+    var countDownDate = new Date(finish);
+
+    countDownDate = new Date(countDownDate);
+
+    var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("hitung").innerHTML = days + "<span style='font-size:14px'> h</span> : " + hours + "<span style='font-size:14px'> j</span> : " + minutes + "<span style='font-size:14px'> m</span> : " + seconds + "<span style='font-size:14px'> d</span>";
+
+        if (distance < 0) {
+            clearInterval(x);
+            formreset.submit();
+        }
+    }, 1000);
     $(".image-popup").magnificPopup({
         type: "image"
         , closeOnContentClick: !0
@@ -118,34 +167,10 @@
         , preloader: !1
         , fixedContentPos: !1
     })
-    const finish = document.querySelector('input[name=finish]').value;
-    var countDownDate = new Date(finish);
-
-    countDownDate = new Date(countDownDate);
-
-    var x = setInterval(function() {
-        var new = new Date().getTime();
-
-        var distance = countDownDate - now;
-
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor(distance / (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
-        var minutes = Math.floor(distance / (1000 * 60 * 60)) / (1000 * 60);
-        var seconds = Math.floor(distance / (1000 * 60)) / 1000;
-        document.getElementById("hitung").innerHTML = days + " : " + hours + " : " + minutes + " : " + seconds + "";
-
-        if (distance < 0) {
-            clearInterval(x);
-            window.location = "/schedule/reset";
-        }
-    }, 1000);
 
 </script>
 
 <script type="text/javascript">
-    $(document).ajaxStart(function() {
-        Pace.restart();
-    });
     $(document).ready(function() {
         $('.datatable').DataTable({});
     });

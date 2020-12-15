@@ -34,7 +34,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
     <!-- Include the Magnific Popup JavaScript -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
-    <link rel="stylesheet" href="https://hm.if.fsm.undip.ac.id/assets/css/css/fancybox.min.css">
 
 </head>
 

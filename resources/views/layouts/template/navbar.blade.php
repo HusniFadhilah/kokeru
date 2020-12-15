@@ -18,16 +18,11 @@
             <ul class="nav-right">
                 <li class="user-profile header-notification">
                     <a href="#!">
-                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}" class="img-radius" alt="User-Profile-Image">
+                        <img src="{{ asset(Auth::user()->avatar) }}" class="img-radius" alt="User-Profile-Image">
                         <span>{{ Auth::user()->name }}</span>
                         <i class="ti-angle-down"></i>
                     </a>
                     <ul class="show-notification profile-notification">
-                        <li>
-                            <a href="">
-                                <i class="ti-settings"></i> Settings
-                            </a>
-                        </li>
                         <li>
                             <a href="{{ route('profile') }}">
                                 <i class="ti-user"></i> Profile

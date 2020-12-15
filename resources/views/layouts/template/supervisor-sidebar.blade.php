@@ -35,7 +35,7 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="request()->is('supervisor/report') ? 'active' : ''}}">
+                    <li class="{{  request()->is('supervisor/report') ? 'active' : ''}}">
                         <a href="{{route('supervisor.report.data')}}">
                             <span class="pcoded-micon"><i class="ti-clipboard"></i><b>L</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Laporan</span>
@@ -49,6 +49,12 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+                    @if(Fungsi::get_schedule_now() != '0000-00-00' && Fungsi::get_schedule_now() != null)
+                    <li class="text-center d-none d-lg-block d-xl-block" style="bottom:10px;left:10px;position:fixed">
+                        <div>Jadwal otomatis direset pada:</div>
+                        <span class="font-weight-bold" style="font-size:17px" id="hitung"></span>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </nav>
