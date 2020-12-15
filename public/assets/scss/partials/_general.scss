@@ -43,6 +43,7 @@ h6 {
 
 p {
     font-size: 13px;
+
     @media only screen and(min-width: 1400px) {
         font-size: 14px;
     }
@@ -51,6 +52,7 @@ p {
 .media-left {
     padding-right: 20px;
 }
+
 /**====== Custom css end ======**/
 /**  =====================
       Main-body css start
@@ -115,6 +117,7 @@ p {
         }
     }
 }
+
 /**====== Main-body css end ======**/
 /**  =====================
       Card-Layout css start
@@ -127,8 +130,8 @@ p {
     padding: 10px 0;
     margin-bottom: 10px;
 
-    img ~ .dot1,
-    img ~ .dot2 {
+    img~.dot1,
+    img~.dot2 {
         height: 14px;
         width: 14px;
         border-radius: 100%;
@@ -137,11 +140,11 @@ p {
         padding: 5px;
     }
 
-    img ~ .dot1 {
+    img~.dot1 {
         left: 40px;
     }
 
-    img ~ .dot2 {
+    img~.dot2 {
         left: 50px;
     }
 
@@ -185,6 +188,7 @@ p {
         }
     }
 }
+
 /*====== Ecommerce Dashboard Css End ======*/
 
 .login .container-fluid {
@@ -195,10 +199,12 @@ p {
 .filter-bar .navbar .navbar-nav .dropdown-menu {
     position: absolute;
 }
+
 /*====== Ready to use Css Start ======*/
 .wrapper {
     padding: 0;
 }
+
 /*====== Ready to use Css End ======*/
 .card-block {
     padding: 1.25rem;
@@ -285,8 +291,8 @@ p {
             margin-top: 5px;
         }
 
-        + .card-block,
-        + .card-block-big {
+        +.card-block,
+        +.card-block-big {
             padding-top: 0;
         }
 
@@ -360,17 +366,17 @@ p {
             }
         }
 
-        .dropdown-menu > a {
+        .dropdown-menu>a {
             padding: 10px 16px;
             line-height: 1.429;
         }
 
-        .dropdown-menu > li > a:focus,
-        .dropdown-menu > li > a:hover {
+        .dropdown-menu>li>a:focus,
+        .dropdown-menu>li>a:hover {
             background-color: rgba(202, 206, 209, 0.5);
         }
 
-        .dropdown-menu > li:first-child > a:first-child {
+        .dropdown-menu>li:first-child>a:first-child {
             border-top-right-radius: 4px;
             border-top-left-radius: 4px;
         }
@@ -425,7 +431,7 @@ p {
                 height: 100%;
                 display: flex;
                 align-items: center;
-                background-color: rgba(256, 256, 256,0.7);
+                background-color: rgba(256, 256, 256, 0.7);
                 z-index: 999;
 
                 i {
@@ -481,6 +487,7 @@ p {
     animation: mymove 0.8s infinite linear;
     display: inline-block;
 }
+
 @-webkit-keyframes mymove {
     0% {
         -webkit-transform: rotate(0deg);
@@ -492,6 +499,7 @@ p {
         transform: rotate(360deg);
     }
 }
+
 @keyframes mymove {
     0% {
         -webkit-transform: rotate(0deg);
@@ -524,6 +532,7 @@ p {
     font-weight: 400;
     color: #2c3e50;
 }
+
 /**======  Card-Layout css end ======**/
 /*======= Typography css start ========*/
 
@@ -540,6 +549,7 @@ p {
 }
 
 .typography {
+
     h1,
     h2,
     h3,
@@ -581,12 +591,13 @@ p {
     display: inline-block;
     float: left;
 }
+
 /*======= Typography css end ========*/
 /**  =====================
       Modal css start
 ==========================  **/
 .modal {
-    z-index: 99999999999;
+    z-index: 4599;
 }
 
 .bd-example .modal {
@@ -612,6 +623,7 @@ p {
 .sweet-alert .sa-input-error {
     top: 23px;
 }
+
 /**====== Modal css end ======**/
 /**  =====================
       Notification css start
@@ -671,6 +683,7 @@ button.close {
     margin-top: 7px;
     margin-bottom: 0;
 }
+
 /**====== Notification css end ======**/
 
 a.mytooltip {
@@ -698,11 +711,13 @@ a.mytooltip {
 }
 
 .owl-theme .owl-dots .owl-dot {
+
     &.active span,
     &:hover span {
         background: $primary-color;
     }
 }
+
 /*========= Owl-carousel css end ============*/
 
 
@@ -756,6 +771,7 @@ a.mytooltip {
 }
 
 .color-accordion-block a {
+
     &.ui-state-active,
     &:focus,
     &:hover {
@@ -799,6 +815,7 @@ a.bg-danger:hover {
     background-color: lighten($danger-color, 10%) !important;
     color: #fff;
 }
+
 /**====== Accordion css end ======**/
 /**  =====================
       Tabs css start
@@ -1012,14 +1029,15 @@ a.bg-danger:hover {
 .b-none {
     border: none !important;
 }
+
 /**====== Tabs css end ======**/
 /**  =====================
       Table css start
 ==========================  **/
 
 .table-primary,
-.table-primary > td,
-.table-primary > th {
+.table-primary>td,
+.table-primary>th {
     background-color: #4680FE;
 }
 
@@ -1030,6 +1048,7 @@ a.bg-danger:hover {
 }
 
 .table.table-xl {
+
     td,
     th {
         padding: 1.25rem 2rem;
@@ -1037,6 +1056,7 @@ a.bg-danger:hover {
 }
 
 .table.table-lg {
+
     td,
     th {
         padding: 0.9rem 2rem;
@@ -1044,6 +1064,7 @@ a.bg-danger:hover {
 }
 
 .table.table-de {
+
     td,
     th {
         padding: 0.75rem 2rem;
@@ -1051,6 +1072,7 @@ a.bg-danger:hover {
 }
 
 .table.table-sm {
+
     td,
     th {
         padding: 0.6rem 2rem;
@@ -1058,6 +1080,7 @@ a.bg-danger:hover {
 }
 
 .table.table-xs {
+
     td,
     th {
         padding: 0.4rem 2rem;
@@ -1065,31 +1088,35 @@ a.bg-danger:hover {
 }
 
 .table-columned {
-    > tbody > tr {
-         > th:first-child,
-        > td:first-child {
+    >tbody>tr {
+
+        >th:first-child,
+        >td:first-child {
             border-left: 0;
         }
     }
 
-    > tfoot > tr {
-         > th:first-child,
-        > td:first-child {
+    >tfoot>tr {
+
+        >th:first-child,
+        >td:first-child {
             border-left: 0;
         }
     }
 
-    > tbody > tr {
-         > th,
-        > td {
+    >tbody>tr {
+
+        >th,
+        >td {
             border: 0;
             border-left: 1px solid #ddd;
         }
     }
 
-    > tfoot > tr {
-         > th,
-        > td {
+    >tfoot>tr {
+
+        >th,
+        >td {
             border: 0;
             border-left: 1px solid #ddd;
         }
@@ -1104,46 +1131,52 @@ a.bg-danger:hover {
     }
 }
 
-.table > thead > tr > th {
+.table>thead>tr>th {
     border-bottom-color: #ccc;
 }
 
 .table-borderless tbody tr {
+
     td,
     th {
         border: 0;
     }
 }
 
-.table-bordered > thead > tr.border-solid {
-     > th,
-    > td {
+.table-bordered>thead>tr.border-solid {
+
+    >th,
+    >td {
         border-bottom-width: 2px;
     }
 
     &:first-child {
-        > td,
+
+        >td,
         th {
             border-bottom-width: 2px;
         }
     }
 }
 
-.table-bordered > thead > tr.border-double {
-     > th,
-    > td {
+.table-bordered>thead>tr.border-double {
+
+    >th,
+    >td {
         border-bottom-width: 3px;
         border-bottom-style: double;
     }
 
     &:first-child {
-        > td,
+
+        >td,
         th {
             border-bottom-width: 3px;
             border-bottom-style: double;
         }
     }
 }
+
 /**====== Table css end ======**/
 
 /**  =====================
@@ -1195,6 +1228,7 @@ a.bg-danger:hover {
 .ct-series-d .ct-slice-donut {
     stroke: #4F5467;
 }
+
 /*===== List-chart Css End ====*/
 
 /**  =====================
@@ -1313,6 +1347,7 @@ a.bg-danger:hover {
     margin: 30px 0;
     padding: 17px 5px;
 }
+
 /**====== Product css end ======**/
 /**  =====================
       Product-details css start
@@ -1454,9 +1489,10 @@ a.bg-danger:hover {
     margin: 10px 0 30px;
 }
 
-.addcontact .md-content > div ul {
+.addcontact .md-content>div ul {
     padding-left: 0;
 }
+
 /**====== Product-details css end ======**/
 
 
@@ -1636,6 +1672,7 @@ a.bg-danger:hover {
 .offset-11 {
     margin-left: 91.666667%;
 }
+
 @media (min-width: 576px) {
     .col-sm {
         -webkit-flex-basis: 0;
@@ -1904,6 +1941,7 @@ a.bg-danger:hover {
         margin-left: 91.666667%;
     }
 }
+
 @media (min-width: 768px) {
     .col-md {
         -webkit-flex-basis: 0;
@@ -2172,6 +2210,7 @@ a.bg-danger:hover {
         margin-left: 91.666667%;
     }
 }
+
 @media (min-width: 992px) {
     .col-lg {
         -webkit-flex-basis: 0;
@@ -2440,6 +2479,7 @@ a.bg-danger:hover {
         margin-left: 91.666667%;
     }
 }
+
 @media (min-width: 1200px) {
     .col-xl {
         -webkit-flex-basis: 0;
@@ -2708,6 +2748,7 @@ a.bg-danger:hover {
         margin-left: 91.666667%;
     }
 }
+
 /*====== Warning css starts ======= */
 .ie-warning {
     position: fixed;
@@ -2742,12 +2783,12 @@ a.bg-danger:hover {
     width: 720px;
 }
 
-.ie-warning .iew-download > li {
+.ie-warning .iew-download>li {
     float: left;
     vertical-align: top;
 }
 
-.ie-warning .iew-download > li > a {
+.ie-warning .iew-download>li>a {
     display: block;
     color: #000;
     width: 140px;
@@ -2755,41 +2796,47 @@ a.bg-danger:hover {
     padding: 15px 0;
 }
 
-.ie-warning .iew-download > li > a > div {
+.ie-warning .iew-download>li>a>div {
     margin-top: 10px;
 }
 
-.ie-warning .iew-download > li > a:hover {
+.ie-warning .iew-download>li>a:hover {
     background-color: #eee;
 }
+
 /*====== Warning css ends ======= */
 /*====== Json form css start =======*/
 
 .alpaca-field img {
     width: 250px;
 }
+
 /*====== Json form css ends =======*/
 /*====== Sticky css start =======*/
 
 .arrow_box {
     z-index: 0;
 }
+
 @media only screen and (max-width:575px) {
     .sticky-card {
         margin-bottom: 250px;
     }
 }
+
 /*====== Sticky css ends =======*/
 /*====== Ready to use css start ======*/
 
 .j-pro .j-label {
     font-weight: 600;
 }
+
 /*====== Ready to use css ends ======*/
 
 .ms-container {
     width: 100%;
 }
+
 /**  =====================
       Theme-preloader css start
 ==========================  **/
@@ -2810,6 +2857,7 @@ a.bg-danger:hover {
     width: 75px;
     margin: -25px 0 0 -37.5px;
 }
+
 @-webkit-keyframes line-scale-pulse-out {
     0% {
         -webkit-transform: scaley(1);
@@ -2826,6 +2874,7 @@ a.bg-danger:hover {
         transform: scaley(1);
     }
 }
+
 @keyframes line-scale-pulse-out {
     0% {
         -webkit-transform: scaley(1);
@@ -2843,7 +2892,7 @@ a.bg-danger:hover {
     }
 }
 
-.ball-scale .contain > div {
+.ball-scale .contain>div {
     width: 3px;
     height: 50px;
     border-radius: 5px;
@@ -2855,25 +2904,26 @@ a.bg-danger:hover {
     animation: line-scale-pulse-out 0.9s -0.6s infinite cubic-bezier(0.85, 0.25, 0.37, 0.85);
 }
 
-.ball-scale .contain > div:nth-child(4),
-.ball-scale .contain > div:nth-child(6) {
+.ball-scale .contain>div:nth-child(4),
+.ball-scale .contain>div:nth-child(6) {
     animation-delay: -0.4s !important;
 }
 
-.ball-scale .contain > div:nth-child(3),
-.ball-scale .contain > div:nth-child(7) {
+.ball-scale .contain>div:nth-child(3),
+.ball-scale .contain>div:nth-child(7) {
     animation-delay: -0.3s !important;
 }
 
-.ball-scale .contain > div:nth-child(2),
-.ball-scale .contain > div:nth-child(8) {
+.ball-scale .contain>div:nth-child(2),
+.ball-scale .contain>div:nth-child(8) {
     animation-delay: -0.2s !important;
 }
 
-.ball-scale .contain > div:nth-child(1),
-.ball-scale .contain > div:nth-child(9) {
+.ball-scale .contain>div:nth-child(1),
+.ball-scale .contain>div:nth-child(9) {
     animation-delay: -0.1s !important;
 }
+
 @-webkit-keyframes line-scale-pulse-out-rapid {
     0% {
         -webkit-transform: scaley(1);
@@ -2890,6 +2940,7 @@ a.bg-danger:hover {
         transform: scaley(1);
     }
 }
+
 @keyframes line-scale-pulse-out-rapid {
     0% {
         -webkit-transform: scaley(1);
@@ -2907,7 +2958,7 @@ a.bg-danger:hover {
     }
 }
 
-.ball-scale .contain > div {
+.ball-scale .contain>div {
     width: 3px;
     height: 50px;
     border-radius: 5px;
@@ -2920,33 +2971,43 @@ a.bg-danger:hover {
     animation: line-scale-pulse-out-rapid 0.9s -0.5s infinite cubic-bezier(0.11, 0.49, 0.38, 0.78);
 }
 
-.ball-scale .contain > div:nth-child(4),
-.ball-scale .contain > div:nth-child(6) {
+.ball-scale .contain>div:nth-child(4),
+.ball-scale .contain>div:nth-child(6) {
     animation-delay: -0.30s !important;
 }
 
-.ball-scale .contain > div:nth-child(3),
-.ball-scale .contain > div:nth-child(7) {
+.ball-scale .contain>div:nth-child(3),
+.ball-scale .contain>div:nth-child(7) {
     animation-delay: -0.20s !important;
 }
 
-.ball-scale .contain > div:nth-child(2),
-.ball-scale .contain > div:nth-child(8) {
+.ball-scale .contain>div:nth-child(2),
+.ball-scale .contain>div:nth-child(8) {
     animation-delay: -0.10s !important;
 }
 
-.ball-scale .contain > div:nth-child(1),
-.ball-scale .contain > div:nth-child(9) {
+.ball-scale .contain>div:nth-child(1),
+.ball-scale .contain>div:nth-child(9) {
     animation-delay: 0s !important;
 }
-$l-color: #93BE52,#FE8A7D,#FFB64D,#FC6180,#4680ff,#FC6180,#FFB64D,#FE8A7D,#93BE52;
+
+$l-color: #93BE52,
+#FE8A7D,
+#FFB64D,
+#FC6180,
+#4680ff,
+#FC6180,
+#FFB64D,
+#FE8A7D,
+#93BE52;
 $i: 1;
 
-.ball-scale .contain > div {
+.ball-scale .contain>div {
     @each $value in $l-color {
         &:nth-child(#{$i}) {
             background-color: $value;
         }
+
         $i: $i+1;
     }
 }
@@ -2955,16 +3016,17 @@ $i: 1;
     height: 1rem;
 
     .progress-bar {
-        height: 100%!important;
+        height: 100% !important;
     }
 }
+
 // =====================   scroll bar ===========
 
 .pcoded {
     .mCSB_container_wrapper {
         margin-right: 0;
 
-        > .mCSB_container {
+        >.mCSB_container {
             padding-right: 0;
         }
     }
@@ -2978,13 +3040,13 @@ $i: 1;
         }
 
         .mCSB_dragger .mCSB_dragger_bar {
-            background-color: transparentize($inverse-color,1);
+            background-color: transparentize($inverse-color, 1);
         }
 
         .mCSB_dragger.mCSB_dragger_onDrag,
         .mCSB_dragger:active {
             .mCSB_dragger_bar {
-                background-color: transparentize($inverse-color,0.5);
+                background-color: transparentize($inverse-color, 0.5);
             }
         }
     }
@@ -2993,7 +3055,7 @@ $i: 1;
     .main-menu {
         :hover {
             .mCSB_dragger_bar {
-                background-color: transparentize($inverse-color,0.8);
+                background-color: transparentize($inverse-color, 0.8);
             }
         }
     }

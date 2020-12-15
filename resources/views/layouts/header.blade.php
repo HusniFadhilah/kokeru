@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
     <!-- Data Tables -->
     <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://hm.if.fsm.undip.ac.id/assets/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/magnific-popup.css') }}">
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/themify-icons/themify-icons.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/font-awesome/css/font-awesome.min.css') }}">

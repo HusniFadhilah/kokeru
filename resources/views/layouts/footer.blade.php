@@ -59,7 +59,7 @@
 <form action="{{ route('schedule.reset') }}" method="post" id="reset-form">
     @csrf
     @method('patch')
-    <input type="hidden" name="finish" value="{{ Fungsi::get_schedule_now() }} 23:59:59">
+    <input type="hidden" name="finish" value="{{ Fungsi::get_schedule_now() }} 23:59:00">
 </form>
 @endif
 <div class="flash-data" data-text="{{ session()->get('text')  }}" data-title="{{ session()->get('title')  }}" data-icon="{{ session()->get('icon') }}"></div>
@@ -71,7 +71,7 @@
 <script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="https://hm.if.fsm.undip.ac.id/assets/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
 <!-- jquery slimscroll js -->
 <script type="text/javascript" src="{{ asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 <!-- modernizr js -->
@@ -139,6 +139,8 @@
             formreset.submit();
         }
     }, 1000);
+
+
     $(".image-popup").magnificPopup({
         type: "image"
         , closeOnContentClick: !0
@@ -158,7 +160,11 @@
             enabled: !0
             , duration: 300
         }
+
     });
+
+
+
     $(".popup-youtube, .popup-vimeo, .popup-gmaps").magnificPopup({
         disableOn: 300
         , type: "iframe"
