@@ -59,7 +59,7 @@
 <form action="{{ route('schedule.reset') }}" method="post" id="reset-form">
     @csrf
     @method('patch')
-    <input type="hidden" name="finish" value="{{ Fungsi::get_schedule_now() }} 23:59:59">
+    <input type="hidden" name="finish" value="{{ Fungsi::get_schedule_now() }} 23:59:00">
 </form>
 @endif
 <div class="flash-data" data-text="{{ session()->get('text')  }}" data-title="{{ session()->get('title')  }}" data-icon="{{ session()->get('icon') }}"></div>

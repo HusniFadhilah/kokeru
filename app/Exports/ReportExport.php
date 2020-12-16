@@ -13,14 +13,13 @@ use Maatwebsite\Excel\Concerns\Exportable;
 
 class ReportExport implements FromView, ShouldAutoSize
 {
-	use Exportable;
-	private $fileName = "laporan.xlsx";
+    use Exportable;
+    private $fileName = "laporan.xlsx";
     /**
      * @return \Illuminate\Support\Collection
      */
     public function view(): View
     {
-        return view('supervisor.report.excel', ['reports'=>Report::all()
-    ]);
+        return view('supervisor.report.excel', ['reports' => Report::all()]);
     }
 }

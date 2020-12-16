@@ -33,7 +33,7 @@
                             </div>
                             <hr class="mb-4">
                             <div class="input-group mb-3">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email kamu" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email kamu" name="email" value="{{ old('email') }}">
                             </div>
                             <small class="text-danger mb-2" role="alert">
                                 @error('email')
