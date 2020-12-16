@@ -64,6 +64,17 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label">Password</label>
+                                    <div class="col-lg-10">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" value="{{ old('password'), Auth::user()->password }}">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
 
                             <div class="form-group">

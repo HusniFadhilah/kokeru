@@ -20,31 +20,6 @@ class ProfileController extends Controller
         return view('supervisor.profile', compact('user'));
     }
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-    //         'phone' => ['required', 'max:30'],
-    //         'password' => 'required',
-    //         'avatar' => ['image'],
-    //     ]);
-
-    //     $attr = $request->all();
-    //     if ($request->file('avatar')) {
-    //         $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
-    //     } else {
-    //         $attr['avatar'] = 'assets/img/user/default.jpg';
-    //     }
-    //     $attr['password'] = Hash::make($request->password);
-    //     $attr['slug'] = Str::slug($request->name);
-
-    //     User::create($attr);
-
-    //     Fungsi::sweetalert('Profile berhasil diedit', 'success', 'Berhasil!');
-    //     return redirect(route('supervisor.profile.data'));
-    // }
-
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -52,6 +27,7 @@ class ProfileController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'max:30'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'password' => 'required',
         ]);
 
         $attr = $request->all();
