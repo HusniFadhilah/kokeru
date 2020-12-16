@@ -2,6 +2,8 @@
 
 namespace App\Libraries;
 
+use Carbon\Carbon;
+use App\Models\Schedule;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,5 +30,16 @@ class Fungsi
     public static function get_role_session()
     {
         return strtolower(Auth::user()->role->name);
+    }
+
+    public static function get_schedule_now()
+    {
+        $schedule = Schedule::latest()->first();
+        if ($schedule != null) {
+            $schedule = Carbon::parse($schedule->date_time)->format('Y-m-d');
+        } else {
+            $schedule = '';
+        }
+        return $schedule;
     }
 }

@@ -25,7 +25,13 @@
                                 </div>
                             </a>
                         </div>
-                        @endforeach
+                        @empty
+                        <div class="col-12">
+                            <div class="btn btn-block alert alert-dark" role="alert">
+                                No Data
+                            </div>
+                        </div>
+                        @endforelse
                     </div>
                 </div>
             </div>

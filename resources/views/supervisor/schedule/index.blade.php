@@ -14,10 +14,10 @@
                         <!-- tabs card start -->
                         <div class="col-sm-12">
                             <a href="{{ route('supervisor.schedule.create') }}" class="btn btn-primary mb-3"><i class="fa fa-plus mr-2"></i>Tambah Jadwal Baru</a>
-                            <form action="{{ route('supervisor.schedule.reset') }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-danger mb-3"><i class="fa fa-refresh mr-2"></i>Reset Jadwal</button>
-                            </form>
+                            {{-- <form action="{{ route('supervisor.schedule.reset') }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger mb-3"><i class="fa fa-refresh mr-2"></i>Reset Jadwal</button>
+                            </form> --}}
                             <div class="card tabs-card">
                                 <div class="card-block">
                                     <div class="table-responsive">

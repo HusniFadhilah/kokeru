@@ -16,10 +16,9 @@ class ProfileController extends Controller
 
     public function edit()
     {
-        if(Auth::user()){
-            $users = User::find(Auth::user()->id);
-            return view('supervisor.profile', compact('users'));
-        }
+        return view('supervisor.profile', [
+            'user' => $request->user()
+        ]);
     }
 
     public function store(Request $request)
@@ -67,7 +66,7 @@ class ProfileController extends Controller
 
         $user->update($attr);
         Fungsi::sweetalert('Profile berhasil diupdate', 'success', 'Berhasil!');
-        return redirect(route('supervisor.profile.data'));
+        return redirect(route('supervisor.profile'));
     }
 
 }

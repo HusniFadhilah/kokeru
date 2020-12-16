@@ -7,7 +7,6 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
                 <div class="page-body">
                     <div class="row">
 
@@ -82,7 +81,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $report->user->name }}</td>
-                                                            <td>{{ $report->room->name }}</td>
+                                                            <td>{{ $report->room['name'] }}</td>
                                                             <td>{{ Date::indo_date($report->date_time) }}</td>
                                                             <td>
                                                                 @if($report->status == 0)
@@ -91,13 +90,18 @@
                                                                 <span class="label label-success">Sudah</span>
                                                                 @endif
                                                             </td>
-                                                            <td><a class="btn btn-sm btn-warning">Edit</a></td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-primary trigger-modal" data-cs="{{ $report->user['name'] }}" data-room="{{ $report->room['name'] }}" data-file1="{{ asset('storage/'.$report->file_1) }}" data-file2="{{ asset('storage/'.$report->file_2) }}" data-file3="{{ asset('storage/'.$report->file_3) }}" data-file4="{{ asset('storage/'.$report->file_4) }}" data-file5="{{ asset('storage/'.$report->file_5) }}" data-video="{{ asset('storage/'.$report->video) }}" data-toggle="modal" data-target="#modal">
+                                                                    <i class="fa fa-eye mr-2"></i>Lihat Bukti
+                                                                </button>
+                                                            </td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
+
 
                                     </div>
                                 </div>

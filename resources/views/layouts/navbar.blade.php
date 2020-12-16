@@ -13,6 +13,15 @@
 
             </ul>
 
+            @if(Fungsi::get_schedule_now() != '0000-00-00' && Fungsi::get_schedule_now() != null)
+            <ul class="text-center">
+                <li class="text-center d-none d-lg-block d-xl-block">
+                    <div>Jadwal otomatis direset pada:</div>
+                    <span class="font-weight-bold" style="font-size:17px" id="hitung"></span>
+                </li>
+            </ul>
+            @endif
+
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
@@ -32,7 +41,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route(Fungsi::get_role_session().'.index') }}">
                             {{ __('Dashboard') }}
-                        </a> 
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}

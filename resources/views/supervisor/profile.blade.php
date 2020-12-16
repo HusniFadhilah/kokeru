@@ -12,8 +12,8 @@
                     <div class="row">
 
                         <form action="{{ route('profile.update', $users->id) }}" method="post" enctype="multipart/form-data">
+                            @method('patch')
                             @csrf
-                            @method('post')
                             <h4 class="sub-title">Edit Profile</h4>
 
                             <div class="form-group row">

@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\Supervisor\{SupervisorController, ScheduleController};
 use App\Http\Controllers\Cs\{CsController};
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\{HomeController, ProfileController};
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\{Auth, Route};
 
@@ -60,13 +59,9 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
             Route::post('/schedule/reset', [ScheduleController::class, 'reset'])->name('schedule.reset');
 
-            // Route::get('/', [MonitoringController::class, 'monitor'])->name('schedule.data');
-            Route::resource('/report', ReportController::class, [
-                'names' => [
-                    'index' => 'report.data',
-                    'export_excel' => 'report.export'
-                ]
-            ]);
+            Route::get('/report', [App\Http\Controllers\Supervisor\ReportController::class, 'index'])->name('report.data');
+            Route::get('/report/export_excel', [App\Http\Controllers\Supervisor\ReportController::class, 'export_excel'])->name('report.export.excel');
+            Route::get('/report/export_pdf', [App\Http\Controllers\Supervisor\ReportController::class, 'export_pdf'])->name('report.export.pdf');
         });
 
     //Functions accessed by only cs users
@@ -81,16 +76,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('/report', ReportController::class, [
                 'names' => [
                     'index' => 'report.data',
-                    'create' => 'report.create',
                     'update' => 'report.update',
-                    'destroy' => 'report.delete'
                 ]
             ]);
-            // Route::get('/task', [TaskController::class, 'index'])->name('task.data');
-            // Route::get('/task/edit/{id}', [TaskController::class, 'edit'])->name('task.edit');
-            // Route::post('/task/update', [TaskController::class, 'update'])->name('task.update');
         });
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.data');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
 });
+Route::patch('/schedule/reset', ResetScheduleController::class)->name('schedule.reset');
