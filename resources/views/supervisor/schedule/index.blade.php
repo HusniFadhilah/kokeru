@@ -37,7 +37,7 @@
                                                     <td>{{ $schedule->room['name'] }}</td>
                                                     <td>{{ $schedule->user['name'] }}</td>
                                                     <td>
-                                                        <a href="{{ route('supervisor.schedule.edit', $schedule->id) }}" class="btn btn-warning btn-sm" title="Edit Ruangan"><i class="fa fa-edit"></i></a>
+                                                        {{-- <a href="{{ route('supervisor.schedule.edit', $schedule->id) }}" class="btn btn-warning btn-sm" title="Edit Ruangan"><i class="fa fa-edit"></i></a> --}}
                                                         <a href="{{ route('supervisor.schedule.delete',$schedule->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Jadwal" title="Hapus Jadwal"><i class="fa fa-trash"></i></a>
                                                         <form id="delete-form" action="" method="POST" class="d-none">
                                                             @csrf

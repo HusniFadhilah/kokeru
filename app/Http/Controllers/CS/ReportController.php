@@ -14,7 +14,9 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $reports_today = Report::where('cs_id', Auth::user()->id)->whereDate('date_time', Carbon::today())->get();
+        $reports_today = Report::where('cs_id', Auth::user()->id)->whereHas('schedule', function ($query) {
+            $query->whereDate('date_time', Carbon::today());
+        })->get();
         return view('cs.report.index', compact('reports_today'));
     }
 

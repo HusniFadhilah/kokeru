@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Supervisor;
 
 use App\Models\Room;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Report;
+use App\Models\Schedule;
 use App\Libraries\Fungsi;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class CrudRoomController extends Controller
 {
@@ -69,7 +71,10 @@ class CrudRoomController extends Controller
     public function destroy($id)
     {
         $room = Room::find($id);
-
+        if (count(Schedule::where('room_id', $id)->get()) > 0) {
+            Fungsi::sweetalert('Ruangan tidak dapat dihapus karena sudah digunakan', 'error', 'Gagal!');
+            return redirect()->route('supervisor.room.data');
+        }
         $room->delete();
         Fungsi::sweetalert('Ruangan berhasil dihapus', 'success', 'Berhasil!');
         return redirect()->route('supervisor.room.data');

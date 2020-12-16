@@ -11,7 +11,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $reports_today = Report::whereDate('date_time', Carbon::today())->get();
+        $reports_today = Report::whereHas('schedule', function ($query) {
+            $query->whereDate('date_time', Carbon::today());
+        })->get();
         return view('supervisor.monitor', compact('reports_today'));
     }
 }

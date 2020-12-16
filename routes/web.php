@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Supervisor\{SupervisorController, ScheduleController};
-use App\Http\Controllers\Cs\{CsController};
+use App\Http\Controllers\CS\{CsController};
 use App\Http\Controllers\{HomeController, ProfileController};
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\{Auth, Route};
@@ -69,7 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Functions accessed by only cs users
     Route::prefix('/cs')
-        ->namespace('Cs')
+        ->namespace('CS')
         ->name('cs.')
         ->middleware('role:CS')
         ->group(function () {
