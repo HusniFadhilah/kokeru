@@ -15,12 +15,13 @@ class MonitoringController extends Controller
 {
     public function index(Request $request)
     {
-        $reports_today = Report::whereDate('date_time', Carbon::today())->get();
+        $reports_today = Report::whereHas('schedule', function ($query) {
+            $query->whereDate('date_time', Carbon::today());
+        })->get();
         $reports = Report::all();
-        return view('supervisor.monitor', 
+        return view('supervisor.monitor',
             [
                 "report" => $reports_today
             ]);
     }
 }
-?>

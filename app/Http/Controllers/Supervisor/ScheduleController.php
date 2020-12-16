@@ -52,6 +52,33 @@ class ScheduleController extends Controller
         return redirect(route('supervisor.schedule.data'));
     }
 
+    public function edit(Schedule $schedule)
+    {
+        $cs = User::where('role_id', 2)->get();
+        $schedules = Schedule::pluck('room_id')->all();
+        $rooms = Room::whereNotIn('id', $schedules)->select()->get();
+        $schedules2 = Schedule::get(['room_id']);
+        $rooms2 = Room::whereIn('id', $schedules2)->select()->get()[0];
+        $rooms->push($rooms2);
+        return view('supervisor.schedule.edit', compact('schedule', 'rooms', 'cs'));
+    }
+
+    public function update(Request $request, Schedule $schedule)
+    {
+        $attr = $request->all();
+
+        $schedule->update($attr);
+        Fungsi::sweetalert('Jadwal berhasil diupdate', 'success', 'Berhasil!');
+        return redirect(route('supervisor.schedule.data'));
+    }
+
+    public function destroy(Schedule $schedule)
+    {
+        $schedule->delete();
+        Fungsi::sweetalert('Jadwal berhasil dihapus', 'success', 'Berhasil!');
+        return redirect()->route('supervisor.schedule.data');
+    }
+
     public function reset()
     {
         $schedules = Schedule::all();

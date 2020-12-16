@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Supervisor;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Schedule;
 use App\Libraries\Fungsi;
 use Illuminate\Support\Str;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class CrudCsController extends Controller
 {
@@ -88,6 +89,10 @@ class CrudCsController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        if (count(Schedule::where('cs_id', $id)->get()) > 0) {
+            Fungsi::sweetalert('Akun Cleaning Service tidak dapat dihapus karena sudah digunakan', 'error', 'Gagal!');
+            return redirect()->route('supervisor.cs.data');
+        }
         if ($user["avatar"] != 'assets/img/user/default.jpg') {
             unlink(storage_path('app/public/' . $user["avatar"]));
         }

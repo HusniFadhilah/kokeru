@@ -17,7 +17,9 @@ class SupervisorController extends Controller
         $sum_room = Room::all()->count();
         $sum_status_sudah = Report::whereDate('date_time', Carbon::today())->where('status', 1)->count();
         $sum_status_belum = Report::whereDate('date_time', Carbon::today())->where('status', 0)->count();
-        $reports_today = Report::whereDate('date_time', Carbon::today())->get();
+        $reports_today = Report::whereHas('schedule', function ($query) {
+            $query->whereDate('date_time', Carbon::today());
+        })->get();
         $reports = Report::all();
         return view('supervisor.index', compact('sum_cs', 'sum_room', 'sum_status_sudah', 'sum_status_belum', 'reports_today', 'reports'));
     }

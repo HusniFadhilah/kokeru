@@ -28,7 +28,7 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('supervisor/schedule', 'supervisor/schedule/create', 'supervisor/schedule/*/edit') ? 'active' : ''}}">
+                    <li class="{{ Request::is('supervisor/schedule', 'supervisor/schedule/create', 'supervisor/schedule/edit/*') ? 'active' : ''}}">
                         <a href="{{ route('supervisor.schedule.data') }}">
                             <span class="pcoded-micon"><i class="ti-calendar"></i><b>J</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Distribusi Jadwal</span>

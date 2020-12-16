@@ -29,9 +29,11 @@ ul {
 
 a {
     font-size: 13px;
+
     @media only screen and(min-width: 1400px) {
         font-size: 14px;
     }
+
     color: $inverse-color;
 
     &:focus,
@@ -40,9 +42,11 @@ a {
         color: $primary-color;
     }
 }
-h4{
-	font-size: 1.375rem;
+
+h4 {
+    font-size: 1.375rem;
 }
+
 h6 {
     font-size: 14px;
 }
@@ -53,17 +57,20 @@ p {
     //     font-size: 14px;
     // }
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6{
+h6 {
     font-weight: 600;
 }
+
 .media-left {
     padding-right: 20px;
 }
+
 /**====== Custom css end ======**/
 /**  =====================
       Theme-preloader css start
@@ -72,11 +79,12 @@ h6{
 .theme-loader {
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     position: fixed;
     z-index: 999999;
     top: 0;
     left: 0;
+
     .loader-track {
         position: relative;
         left: 0;
@@ -85,7 +93,7 @@ h6{
         height: 3px;
         display: block;
         width: 100%;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0));
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
         overflow: hidden;
 
         .loader-bar {
@@ -99,7 +107,7 @@ h6{
                 left: 0;
                 bottom: 0;
                 will-change: left, right;
-                background:linear-gradient(to bottom, $primary-color,transparentize($primary-color,0.2));
+                background: linear-gradient(to bottom, $primary-color, transparentize($primary-color, 0.2));
                 // background:$primary-color;
             }
 
@@ -114,6 +122,7 @@ h6{
         }
     }
 }
+
 @keyframes move {
     0% {
         left: -35%;
@@ -130,6 +139,7 @@ h6{
         right: -90%;
     }
 }
+
 @keyframes movefast {
     0% {
         left: -200%;
@@ -146,6 +156,7 @@ h6{
         right: -8%;
     }
 }
+
 /**  =====================
       Main-body css start
 ==========================  **/
@@ -154,12 +165,14 @@ h6{
         padding: 1.8rem;
         transition: all ease-in 0.3s;
     }
-    .page-header{
-        h5{
+
+    .page-header {
+        h5 {
             color: $primary-color;
         }
     }
 }
+
 /**====== Main-body css end ======**/
 /**  =====================
       Card-Layout css start
@@ -171,8 +184,8 @@ h6{
     padding: 10px 0;
     margin-bottom: 10px;
 
-    img ~ .dot1,
-    img ~ .dot2 {
+    img~.dot1,
+    img~.dot2 {
         height: 14px;
         width: 14px;
         border-radius: 100%;
@@ -181,11 +194,11 @@ h6{
         padding: 5px;
     }
 
-    img ~ .dot1 {
+    img~.dot1 {
         left: 40px;
     }
 
-    img ~ .dot2 {
+    img~.dot2 {
         left: 50px;
     }
 
@@ -229,6 +242,7 @@ h6{
         }
     }
 }
+
 /*====== Ecommerce Dashboard Css End ======*/
 .login .container-fluid {
     width: auto;
@@ -238,11 +252,13 @@ h6{
 .filter-bar .navbar .navbar-nav .dropdown-menu {
     position: absolute;
 }
+
 /*====== Ready to use Css Start ======*/
 
 .wrapper {
     padding: 0;
 }
+
 /*====== Ready to use Css End ======*/
 .card {
     border-radius: 5px;
@@ -326,8 +342,8 @@ h6{
             margin-top: 5px;
         }
 
-        + .card-block,
-        + .card-block-big {
+        +.card-block,
+        +.card-block-big {
             padding-top: 0;
         }
 
@@ -344,6 +360,7 @@ h6{
 
     .card-block {
         padding: 25px 25px;
+
         table {
             tr {
                 padding-bottom: 20px;
@@ -402,17 +419,17 @@ h6{
             }
         }
 
-        .dropdown-menu > a {
+        .dropdown-menu>a {
             padding: 10px 16px;
             line-height: 1.429;
         }
 
-        .dropdown-menu > li > a:focus,
-        .dropdown-menu > li > a:hover {
+        .dropdown-menu>li>a:focus,
+        .dropdown-menu>li>a:hover {
             background-color: rgba(202, 206, 209, 0.5);
         }
 
-        .dropdown-menu > li:first-child > a:first-child {
+        .dropdown-menu>li:first-child>a:first-child {
             border-top-right-radius: 4px;
             border-top-left-radius: 4px;
         }
@@ -430,9 +447,11 @@ h6{
     .card-block-small {
         padding: 15px 15px;
     }
-    &:hover{
+
+    &:hover {
         box-shadow: 0 0 25px -5px #9e9c9e;
     }
+
     // .inner-card-block {
     //     border: 1px solid #ddd;
     // }
@@ -450,6 +469,7 @@ h6{
             border: 1px solid #ddd;
             width: 100vw;
             height: calc(100vh - 56px);
+
             // position: fixed;
             // top: 80px;
             // z-index: 99999;
@@ -476,7 +496,7 @@ h6{
                 height: 100%;
                 display: flex;
                 align-items: center;
-                background-color: rgba(256, 256, 256,0.7);
+                background-color: rgba(256, 256, 256, 0.7);
                 z-index: 999;
 
                 i {
@@ -487,6 +507,7 @@ h6{
             }
         }
     }
+
     // &[vertical-nav-type="expanded"] {
     //     .card.full-card {
     //         width: calc(100vw - 266px);
@@ -531,6 +552,7 @@ h6{
     animation: mymove 0.8s infinite linear;
     display: inline-block;
 }
+
 @-webkit-keyframes mymove {
     0% {
         -webkit-transform: rotate(0deg);
@@ -542,6 +564,7 @@ h6{
         transform: rotate(360deg);
     }
 }
+
 @keyframes mymove {
     0% {
         -webkit-transform: rotate(0deg);
@@ -574,6 +597,7 @@ h6{
     font-weight: 400;
     color: #2c3e50;
 }
+
 /**======  Card-Layout css end ======**/
 /*======= Typography css start ========*/
 .blockquote {
@@ -589,6 +613,7 @@ h6{
 }
 
 .typography {
+
     h1,
     h2,
     h3,
@@ -630,13 +655,14 @@ h6{
     display: inline-block;
     float: left;
 }
+
 /*======= Typography css end ========*/
 /**  =====================
       Modal css start
 ==========================  **/
 
 .modal {
-    z-index: 99999999999;
+    z-index: 4599;
 }
 
 .bd-example .modal {
@@ -662,6 +688,7 @@ h6{
 .sweet-alert .sa-input-error {
     top: 23px;
 }
+
 /**====== Modal css end ======**/
 /**  =====================
       Notification css start
@@ -720,6 +747,7 @@ button.close {
     margin-top: 7px;
     margin-bottom: 0;
 }
+
 /**====== Notification css end ======**/
 /**  =====================
       Tooltip css start
@@ -1105,7 +1133,7 @@ button.close {
     line-height: 27px;
     padding: 1.5em;
     color: #fff;
-    border-bottom: 55px solid darken($primary-color,20%);
+    border-bottom: 55px solid darken($primary-color, 20%);
     cursor: default;
     pointer-events: none;
     border-radius: 5px;
@@ -1198,6 +1226,7 @@ a.mytooltip {
 .tooltip-icon button i {
     margin-right: 0;
 }
+
 /**====== Tooltip css end ======**/
 /**  =====================
       Slider css start
@@ -1208,11 +1237,13 @@ a.mytooltip {
 }
 
 .owl-theme .owl-dots .owl-dot {
+
     &.active span,
     &:hover span {
         background: $primary-color;
     }
 }
+
 /*========= Owl-carousel css end ============*/
 /**  =====================
       Animation css start
@@ -1221,6 +1252,7 @@ a.mytooltip {
     margin: 10px auto 20px;
     cursor: pointer;
 }
+
 /**====== Animation css end ======**/
 /**  =====================
       Tree-view css start
@@ -1234,9 +1266,10 @@ a.mytooltip {
     }
 }
 
-.jstree-default > .jstree-container-ul .jstree-loading > .jstree-ocl {
+.jstree-default>.jstree-container-ul .jstree-loading>.jstree-ocl {
     background: url("../pages/treeview/throbber.gif") center center no-repeat;
 }
+
 /**====== Tree-view css end ======**/
 /**  =====================
       File Upload css start
@@ -1288,6 +1321,7 @@ a.mytooltip {
 .card .jFiler-item-assets ul li {
     margin-right: 0;
 }
+
 /**====== File Upload css end ======**/
 /**  =====================
       Cropper css start
@@ -1304,13 +1338,14 @@ a.mytooltip {
     max-height: 516px;
     margin-bottom: 20px;
 }
+
 @media (min-width: 768px) {
     .img-container {
         min-height: 516px;
     }
 }
 
-.img-container > img {
+.img-container>img {
     max-width: 100%;
 }
 
@@ -1324,7 +1359,7 @@ a.mytooltip {
     margin-bottom: 10px;
     overflow: hidden;
 
-    > img {
+    >img {
         max-width: 100%;
     }
 }
@@ -1349,30 +1384,32 @@ a.mytooltip {
     margin-right: 0;
 }
 
-.docs-data > .input-group {
+.docs-data>.input-group {
     margin-bottom: 10px;
 
-    > label {
+    >label {
         min-width: 80px;
     }
 
-    > span {
+    >span {
         min-width: 50px;
     }
 }
 
 .docs-buttons {
-     > .btn,
-     > .form-control,
-    > .btn-group {
+
+    >.btn,
+    >.form-control,
+    >.btn-group {
         margin-right: 5px;
     }
 }
 
 .docs-toggles {
-     > .btn,
-     > .dropdown,
-    > .btn-group {
+
+    >.btn,
+    >.dropdown,
+    >.btn-group {
         margin-bottom: 10px;
     }
 }
@@ -1382,7 +1419,7 @@ a.mytooltip {
     margin: -6px -12px;
     padding: 6px 12px;
 
-    > .icon {
+    >.icon {
         margin: 0 -3px;
         vertical-align: top;
     }
@@ -1395,11 +1432,12 @@ a.mytooltip {
 .btn-upload .tooltip-inner {
     white-space: nowrap;
 }
+
 @media (max-width: 400px) {
     .btn-group-crop {
         margin-right: -15px !important;
 
-        > .btn {
+        >.btn {
             padding-left: 5px;
             padding-right: 5px;
         }
@@ -1416,7 +1454,7 @@ a.mytooltip {
 .docs-options .dropdown-menu {
     width: 100%;
 
-    > li {
+    >li {
         padding: 3px 20px;
         font-size: 14px;
 
@@ -1424,7 +1462,7 @@ a.mytooltip {
             background-color: #f7f7f7;
         }
 
-        > label {
+        >label {
             display: block;
         }
     }
@@ -1433,8 +1471,8 @@ a.mytooltip {
 .docs-cropped .modal-body {
     text-align: center;
 
-     > img,
-    > canvas {
+    >img,
+    >canvas {
         max-width: 100%;
     }
 }
@@ -1446,6 +1484,7 @@ a.mytooltip {
 label.btn-upload {
     height: 40px;
 }
+
 /**====== Cropper css end ======**/
 /**  =====================
       Accordion css start
@@ -1496,6 +1535,7 @@ label.btn-upload {
 }
 
 .color-accordion-block a {
+
     &.ui-state-active,
     &:focus,
     &:hover {
@@ -1539,6 +1579,7 @@ a.bg-danger:hover {
     background-color: lighten($danger-color, 10%) !important;
     color: #fff;
 }
+
 /**====== Accordion css end ======**/
 /**  =====================
       Tabs css start
@@ -1753,13 +1794,14 @@ a.bg-danger:hover {
 .b-none {
     border: none !important;
 }
+
 /**====== Tabs css end ======**/
 /**  =====================
       Table css start
 ==========================  **/
 .table-primary,
-.table-primary > td,
-.table-primary > th {
+.table-primary>td,
+.table-primary>th {
     background-color: #4680FE;
 }
 
@@ -1770,6 +1812,7 @@ a.bg-danger:hover {
 }
 
 .table.table-xl {
+
     td,
     th {
         padding: 1.25rem 2rem;
@@ -1777,6 +1820,7 @@ a.bg-danger:hover {
 }
 
 .table.table-lg {
+
     td,
     th {
         padding: 0.9rem 2rem;
@@ -1784,6 +1828,7 @@ a.bg-danger:hover {
 }
 
 .table.table-de {
+
     td,
     th {
         padding: 0.75rem 2rem;
@@ -1791,6 +1836,7 @@ a.bg-danger:hover {
 }
 
 .table.table-sm {
+
     td,
     th {
         padding: 0.6rem 2rem;
@@ -1798,6 +1844,7 @@ a.bg-danger:hover {
 }
 
 .table.table-xs {
+
     td,
     th {
         padding: 0.4rem 2rem;
@@ -1805,31 +1852,35 @@ a.bg-danger:hover {
 }
 
 .table-columned {
-    > tbody > tr {
-         > td:first-child,
-        > th:first-child {
+    >tbody>tr {
+
+        >td:first-child,
+        >th:first-child {
             border-left: 0;
         }
     }
 
-    > tfoot > tr {
-         > td:first-child,
-        > th:first-child {
+    >tfoot>tr {
+
+        >td:first-child,
+        >th:first-child {
             border-left: 0;
         }
     }
 
-    > tbody > tr {
-         > td,
-        > th {
+    >tbody>tr {
+
+        >td,
+        >th {
             border: 0;
             border-left: 1px solid #ddd;
         }
     }
 
-    > tfoot > tr {
-         > td,
-        > th {
+    >tfoot>tr {
+
+        >td,
+        >th {
             border: 0;
             border-left: 1px solid #ddd;
         }
@@ -1844,46 +1895,52 @@ a.bg-danger:hover {
     }
 }
 
-.table > thead > tr > th {
+.table>thead>tr>th {
     border-bottom-color: #ccc;
 }
 
 .table-borderless tbody tr {
+
     td,
     th {
         border: 0;
     }
 }
 
-.table-bordered > thead > tr.border-solid {
-     > td,
-    > th {
+.table-bordered>thead>tr.border-solid {
+
+    >td,
+    >th {
         border-bottom-width: 2px;
     }
 
     &:first-child {
-        > td,
+
+        >td,
         th {
             border-bottom-width: 2px;
         }
     }
 }
 
-.table-bordered > thead > tr.border-double {
-     > td,
-    > th {
+.table-bordered>thead>tr.border-double {
+
+    >td,
+    >th {
         border-bottom-width: 3px;
         border-bottom-style: double;
     }
 
     &:first-child {
-        > td,
+
+        >td,
         th {
             border-bottom-width: 3px;
             border-bottom-style: double;
         }
     }
 }
+
 /**====== Table css end ======**/
 /**  =====================
       User-Profile css start
@@ -2061,6 +2118,7 @@ h6.media-heading {
 }
 
 .user-info {
+
     .media-body,
     .media-left {
         display: table-cell;
@@ -2100,6 +2158,7 @@ h6.media-heading {
 .tab-header {
     margin-bottom: 20px;
 }
+
 /*====== User-Profile End ======*/
 /**  =====================
       User-card css start
@@ -2277,6 +2336,7 @@ h6.media-heading {
 }
 
 .user-profile {
+
     #edit-btn,
     #edit-info-btn {
         margin-bottom: 0;
@@ -2346,6 +2406,7 @@ img.comment-img {
 #main {
     margin-bottom: 20px;
 }
+
 /*====== User-card End ======*/
 /**  =====================
       Offline css start
@@ -2356,6 +2417,7 @@ img.comment-img {
         border: 1px solid #ddd;
     }
 }
+
 /*==== Offline page css end ====*/
 /**  =====================
       Blog css start
@@ -2532,6 +2594,7 @@ img.comment-img {
 }
 
 .blog-big-user {
+
     h6,
     p {
         color: #757575;
@@ -2544,6 +2607,7 @@ img.comment-img {
 
 .shares-like {
     li {
+
         &:first-child,
         i {
             color: #777;
@@ -2716,6 +2780,7 @@ img.comment-img {
     color: #333;
     font-weight: 600;
 }
+
 /*====== Blog css ends =======*/
 /**  =====================
       Gallery css start
@@ -2756,6 +2821,7 @@ img.comment-img {
 figure.effect-goliath {
     background: $primary-color;
 }
+
 /**====== Gallery css end ======**/
 /**  =====================
       List-chart css start
@@ -2805,6 +2871,7 @@ figure.effect-goliath {
 .ct-series-d .ct-slice-donut {
     stroke: #4F5467;
 }
+
 /*===== List-chart Css End ====*/
 /**  =====================
       Task-list css start
@@ -2846,6 +2913,7 @@ figure.effect-goliath {
         margin-right: 10px;
     }
 }
+
 /*===== Task-list css end ====*/
 /**  =====================
       Task-detiails css start
@@ -2874,7 +2942,7 @@ figure.effect-goliath {
     -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
 
-    > span {
+    >span {
         top: 38%;
         width: 100%;
         position: absolute;
@@ -2925,6 +2993,7 @@ figure.effect-goliath {
 }
 
 .task-details .table.table-xs {
+
     td,
     th {
         padding: 1rem 0.3rem;
@@ -2971,6 +3040,7 @@ figure.effect-goliath {
 .task-attachment i {
     cursor: pointer;
 }
+
 /**====== Task-details css end ======**/
 /**  =====================
       Task-board css start
@@ -2980,7 +3050,7 @@ figure.effect-goliath {
     display: inline-block;
 }
 
-.filter-bar > .navbar {
+.filter-bar>.navbar {
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .05), 0 3px 1px -2px rgba(0, 0, 0, .08), 0 1px 5px 0 rgba(0, 0, 0, .08);
@@ -3127,6 +3197,7 @@ p {
 .faq-progress .progress {
     margin-bottom: 10px;
 }
+
 /**====== Tsak-board css end ======**/
 /**  =====================
       Issue-list css start
@@ -3181,13 +3252,14 @@ table.matrics-table tr:first-child td {
     border-top: none !important;
 }
 
-#issue-list-table > thead > tr > th {
+#issue-list-table>thead>tr>th {
     border-bottom: none;
 }
 
 .note-card .notes-list {
     margin-bottom: 20px;
 }
+
 /**====== Issue-list css end ======**/
 /**  =====================
       Product css start
@@ -3314,6 +3386,7 @@ table.matrics-table tr:first-child td {
     font-size: 25px;
     line-height: 36px;
 }
+
 /**====== Product css end ======**/
 /**  =====================
       Product-details css start
@@ -3458,9 +3531,10 @@ table.matrics-table tr:first-child td {
     margin: 10px 0 30px;
 }
 
-.addcontact .md-content > div ul {
+.addcontact .md-content>div ul {
     padding-left: 0;
 }
+
 /**====== Product-details css end ======**/
 /* ======================
     Panels and wells css start
@@ -3522,6 +3596,7 @@ table.matrics-table tr:first-child td {
     padding: 24px;
     border-radius: 6px;
 }
+
 /**====== Panels and wells css end ======**/
 /**  =====================
       Search css start
@@ -3574,20 +3649,21 @@ table.matrics-table tr:first-child td {
 .search2 .card-block:first-child {
     padding-top: 0;
 }
+
 /**====== Search css end ======**/
 /**  =====================
       Wizard css start
 ==========================  **/
-.cart-page .wizard > .content > .body {
+.cart-page .wizard>.content>.body {
     width: 100%;
     padding: 0;
 }
 
-.wizard > .content > .body {
+.wizard>.content>.body {
     width: 100%;
 }
 
-.card .wizard > .steps .current a {
+.card .wizard>.steps .current a {
     outline: none;
     border-radius: 5px;
 }
@@ -3628,6 +3704,7 @@ table.matrics-table tr:first-child td {
     max-width: 15px;
     padding: 5px 0 0;
 }
+
 /**====== Wizard css end ======**/
 /**====== Timeline css start ======**/
 .post-timelines .media {
@@ -3639,6 +3716,7 @@ a[data-lightbox="roadtrip"] .img-fluid,
 a[data-toggle="lightbox"] .img-fluid {
     margin: 10px 0;
 }
+
 /**====== Timeline css end ======**/
 /**  =====================
       Wall css start
@@ -3714,7 +3792,7 @@ a[data-toggle="lightbox"] .img-fluid {
     }
 }
 
-.wall-img-preview .wall-item > img {
+.wall-img-preview .wall-item>img {
     display: none;
 }
 
@@ -3803,6 +3881,7 @@ a[data-toggle="lightbox"] .img-fluid {
         }
     }
 }
+
 /*====== Wall css End ======*/
 /**  =====================
       X-editable css start
@@ -3847,7 +3926,7 @@ a[data-toggle="lightbox"] .img-fluid {
     font-size: 13px;
 }
 
-.wizard > .content > .body label.error {
+.wizard>.content>.body label.error {
     margin-left: 0;
 }
 
@@ -3864,6 +3943,7 @@ a[data-toggle="lightbox"] .img-fluid {
     color: $primary-color;
     font-weight: 600;
 }
+
 /*====== X-editable css End ======*/
 /**  =====================
       Invoice css start
@@ -3886,8 +3966,8 @@ a[data-toggle="lightbox"] .img-fluid {
     padding: 3px 0;
 }
 
-.invoice-table > tbody > tr:last-child > td,
-.invoice-table > tfoot > tr:last-child > td {
+.invoice-table>tbody>tr:last-child>td,
+.invoice-table>tfoot>tr:last-child>td {
     padding-bottom: 0;
 }
 
@@ -3960,6 +4040,7 @@ a[data-toggle="lightbox"] .img-fluid {
         margin-right: 5px;
     }
 }
+
 /**====== Invoice css end ======**/
 .grid-layout span {
     display: block;
@@ -3982,6 +4063,7 @@ a[data-toggle="lightbox"] .img-fluid {
         padding-left: 20px;
     }
 }
+
 /**  =====================
       Version css start
 ==========================  **/
@@ -4026,7 +4108,7 @@ a[data-toggle="lightbox"] .img-fluid {
 }
 
 .introjs-helperNumberLayer {
-    background: linear-gradient(to bottom, lighten($danger-color,5%) 0%, $danger-color 100%);
+    background: linear-gradient(to bottom, lighten($danger-color, 5%) 0%, $danger-color 100%);
 }
 
 .dd-handle,
@@ -4042,12 +4124,14 @@ a[data-toggle="lightbox"] .img-fluid {
     border-top: 1px solid #ddd;
     color: #666;
 }
+
 /**====== Version css end ======**/
 /**====== Date-dropper css ======**/
 .dd-w,
 .sp-container {
     z-index: 99;
 }
+
 /*====== Color css ends ======= */
 /**  =====================
       Session Timeout css start
@@ -4055,6 +4139,7 @@ a[data-toggle="lightbox"] .img-fluid {
 #sessionTimeout-dialog .close {
     display: none;
 }
+
 /*====== Session Timeout css ends ======= */
 .pull-0 {
     right: auto;
@@ -4203,6 +4288,7 @@ a[data-toggle="lightbox"] .img-fluid {
 .offset-11 {
     margin-left: 91.666667%;
 }
+
 @media (min-width: 576px) {
     .col-sm {
         -webkit-flex-basis: 0;
@@ -4471,6 +4557,7 @@ a[data-toggle="lightbox"] .img-fluid {
         margin-left: 91.666667%;
     }
 }
+
 @media (min-width: 768px) {
     .col-md {
         -webkit-flex-basis: 0;
@@ -4739,6 +4826,7 @@ a[data-toggle="lightbox"] .img-fluid {
         margin-left: 91.666667%;
     }
 }
+
 @media (min-width: 992px) {
     .col-lg {
         -webkit-flex-basis: 0;
@@ -5007,6 +5095,7 @@ a[data-toggle="lightbox"] .img-fluid {
         margin-left: 91.666667%;
     }
 }
+
 @media (min-width: 1200px) {
     .col-xl {
         -webkit-flex-basis: 0;
@@ -5275,6 +5364,7 @@ a[data-toggle="lightbox"] .img-fluid {
         margin-left: 91.666667%;
     }
 }
+
 /*====== Warning css starts ======= */
 
 .ie-warning {
@@ -5310,12 +5400,12 @@ a[data-toggle="lightbox"] .img-fluid {
     width: 720px;
 }
 
-.ie-warning .iew-download > li {
+.ie-warning .iew-download>li {
     float: left;
     vertical-align: top;
 }
 
-.ie-warning .iew-download > li > a {
+.ie-warning .iew-download>li>a {
     display: block;
     color: #000;
     width: 140px;
@@ -5323,36 +5413,42 @@ a[data-toggle="lightbox"] .img-fluid {
     padding: 15px 0;
 }
 
-.ie-warning .iew-download > li > a > div {
+.ie-warning .iew-download>li>a>div {
     margin-top: 10px;
 }
 
-.ie-warning .iew-download > li > a:hover {
+.ie-warning .iew-download>li>a:hover {
     background-color: #eee;
 }
+
 /*====== Warning css ends ======= */
 .image-cropper-container {
     margin-top: 10px;
 }
+
 /*====== Json form css start =======*/
 .alpaca-field img {
     width: 250px;
 }
+
 /*====== Json form css ends =======*/
 /*====== Sticky css start =======*/
 .arrow_box {
     z-index: 0;
 }
+
 @media only screen and (max-width:575px) {
     .sticky-card {
         margin-bottom: 250px;
     }
 }
+
 /*====== Sticky css ends =======*/
 /*====== Ready to use css start ======*/
 .j-pro .j-label {
     font-weight: 600;
 }
+
 /*====== Ready to use css ends ======*/
 .ms-container {
     width: 100%;
@@ -5372,16 +5468,17 @@ a[data-toggle="lightbox"] .img-fluid {
     height: 1rem;
 
     .progress-bar {
-        height: 100%!important;
+        height: 100% !important;
     }
 }
+
 // =====================   scroll bar ===========
 
 .pcoded {
     .mCSB_container_wrapper {
         margin-right: 0;
 
-        > .mCSB_container {
+        >.mCSB_container {
             padding-right: 0;
         }
     }
@@ -5395,13 +5492,13 @@ a[data-toggle="lightbox"] .img-fluid {
         }
 
         .mCSB_dragger .mCSB_dragger_bar {
-            background-color: transparentize($inverse-color,1);
+            background-color: transparentize($inverse-color, 1);
         }
 
         .mCSB_dragger.mCSB_dragger_onDrag,
         .mCSB_dragger:active {
             .mCSB_dragger_bar {
-                background-color: transparentize($inverse-color,0.5);
+                background-color: transparentize($inverse-color, 0.5);
             }
         }
     }
@@ -5410,7 +5507,7 @@ a[data-toggle="lightbox"] .img-fluid {
     .main-menu {
         &:hover {
             .mCSB_dragger_bar {
-                background-color: transparentize($inverse-color,0.8);
+                background-color: transparentize($inverse-color, 0.8);
             }
         }
     }
@@ -5429,19 +5526,22 @@ a[data-toggle="lightbox"] .img-fluid {
             padding: 6px 9px;
         }
     }
+
     @media only screen and (min-width:788px) {
         .page-error {
             display: none;
         }
     }
+
     @media only screen and (max-width:786px) {
         .page-body {
             display: none;
         }
     }
 }
+
 @media only screen and (max-width:575px) {
-    .dt-bootstrap4 > div:last-child {
+    .dt-bootstrap4>div:last-child {
         // display: none;
     }
 

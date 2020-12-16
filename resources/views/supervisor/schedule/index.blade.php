@@ -38,7 +38,7 @@
                                                     <td>{{ $schedule->user['name'] }}</td>
                                                     <td>
                                                         {{-- <a href="{{ route('supervisor.schedule.edit', $schedule->id) }}" class="btn btn-warning btn-sm" title="Edit Ruangan"><i class="fa fa-edit"></i></a> --}}
-                                                        {{-- <a href="{{ route('supervisor.schedule.delete',$schedule->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Ruangan" title="Hapus Ruangan"><i class="fa fa-trash"></i></a> --}}
+                                                        <a href="{{ route('supervisor.schedule.delete',$schedule->id) }}" class="btn btn-danger btn-sm tombol-hapus" data-text="Jadwal" title="Hapus Jadwal"><i class="fa fa-trash"></i></a>
                                                         <form id="delete-form" action="" method="POST" class="d-none">
                                                             @csrf
                                                             @method('delete')
@@ -50,9 +50,6 @@
                                         </table>
                                     </div>
                                 </div>
-                                {{-- @if($reset_date != '0000-00-00' || $reset_date != null)
-                                <input type="hidden" name="finish" value="{{ $reset_date }}">
-                                @endif --}}
                             </div>
                         </div>
                         <!-- tabs card end -->

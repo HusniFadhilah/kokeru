@@ -71,7 +71,7 @@
 <script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="https://hm.if.fsm.undip.ac.id/assets/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
 <!-- jquery slimscroll js -->
 <script type="text/javascript" src="{{ asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 <!-- modernizr js -->
@@ -139,6 +139,8 @@
             formreset.submit();
         }
     }, 1000);
+
+
     $(".image-popup").magnificPopup({
         type: "image"
         , closeOnContentClick: !0
@@ -158,7 +160,11 @@
             enabled: !0
             , duration: 300
         }
+
     });
+
+
+
     $(".popup-youtube, .popup-vimeo, .popup-gmaps").magnificPopup({
         disableOn: 300
         , type: "iframe"

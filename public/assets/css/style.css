@@ -468,7 +468,7 @@ h6 {
       Modal css start
 ==========================  **/
 .modal {
-  z-index: 99999999999; }
+  z-index: 4599; }
 
 .bd-example .modal {
   display: block;

@@ -24,7 +24,7 @@ class Fungsi
 
     public static function slice_string_by_word($string)
     {
-        return Str::after($string, 'http://localhost:8000/storage/');
+        return Str::after($string, 'http://kokeru.doltinuku.id/storage');
     }
 
     public static function get_role_session()
