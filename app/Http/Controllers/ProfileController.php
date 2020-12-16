@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -11,40 +12,38 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
-class ProfileController extends Controller 
+class ProfileController extends Controller
 {
 
-    public function edit()
+    public function edit(User $user)
     {
-        return view('supervisor.profile', [
-            'user' => $request->user()
-        ]);
+        return view('supervisor.profile', compact('user'));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-            'phone' => ['required', 'max:30'],
-            'password' => 'required',
-            'avatar' => ['image'],
-        ]);
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
+    //         'phone' => ['required', 'max:30'],
+    //         'password' => 'required',
+    //         'avatar' => ['image'],
+    //     ]);
 
-        $attr = $request->all();
-        if ($request->file('avatar')) {
-            $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
-        } else {
-            $attr['avatar'] = 'assets/img/user/default.jpg';
-        }
-        $attr['password'] = Hash::make($request->password);
-        $attr['slug'] = Str::slug($request->name);
+    //     $attr = $request->all();
+    //     if ($request->file('avatar')) {
+    //         $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
+    //     } else {
+    //         $attr['avatar'] = 'assets/img/user/default.jpg';
+    //     }
+    //     $attr['password'] = Hash::make($request->password);
+    //     $attr['slug'] = Str::slug($request->name);
 
-        User::create($attr);
+    //     User::create($attr);
 
-        Fungsi::sweetalert('Profile berhasil diedit', 'success', 'Berhasil!');
-        return redirect(route('supervisor.profile.data'));
-    }
+    //     Fungsi::sweetalert('Profile berhasil diedit', 'success', 'Berhasil!');
+    //     return redirect(route('supervisor.profile.data'));
+    // }
 
     public function update(Request $request, $id)
     {
@@ -66,7 +65,6 @@ class ProfileController extends Controller
 
         $user->update($attr);
         Fungsi::sweetalert('Profile berhasil diupdate', 'success', 'Berhasil!');
-        return redirect(route('supervisor.profile'));
+        return redirect(route('profile.edit'));
     }
-
 }

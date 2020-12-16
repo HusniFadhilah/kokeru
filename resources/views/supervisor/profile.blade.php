@@ -11,9 +11,9 @@
                 <div class="page-body">
                     <div class="row">
 
-                        <form action="{{ route('profile.update', $users->id) }}" method="post" enctype="multipart/form-data">
-                            @method('patch')
+                        <form action="{{ route('profile.update', Auth::user()->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('PATCH')
                             <h4 class="sub-title">Edit Profile</h4>
 
                             <div class="form-group row">
@@ -64,7 +64,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            
+
 
                             <div class="form-group">
                                 <button type="submit" id="edit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>

@@ -84,7 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
             ]);
         });
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::post('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/{user}', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update/{user}', [ProfileController::class, 'update'])->name('profile.update');
 });
 Route::patch('/schedule/reset', ResetScheduleController::class)->name('schedule.reset');
