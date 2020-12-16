@@ -65,6 +65,11 @@ class ScheduleController extends Controller
 
     public function update(Request $request, Schedule $schedule)
     {
+        // $reports = Report::where('schedule_id', $schedule->id)->get()[0];
+        // if ($reports->status == 1) {
+        //     Fungsi::sweetalert('Jadwal tidak dapat diupdate karena', 'error', 'Gagal!');
+        //     return redirect(route('supervisor.schedule.data'));
+        // }
         $attr = $request->all();
 
         $schedule->update($attr);

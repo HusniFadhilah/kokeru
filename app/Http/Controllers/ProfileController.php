@@ -31,9 +31,13 @@ class ProfileController extends Controller
         ]);
 
         $attr = $request->all();
-
         if ($request->file('avatar')) {
-            unlink(storage_path('app/public/' . $user["avatar"]));
+            if (
+                Fungsi::slice_string_by_word($user["avatar"]) !=
+                'assets/img/user/default.jpg'
+            ) {
+                unlink(storage_path('app/public/' . Fungsi::slice_string_by_word($user["avatar"])));
+            }
             $attr['avatar'] = $request->file('avatar')->store('assets/img/user', 'public');
         } else {
             $attr['avatar'] = Fungsi::slice_string_by_word($user->avatar);
