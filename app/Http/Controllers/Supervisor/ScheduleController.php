@@ -86,23 +86,22 @@ class ScheduleController extends Controller
 
     public function reset()
     {
-        $schedules = Schedule::all();
+        $schedules = Schedule::where('date_time', Carbon::today());
 
-        foreach ($schedules as $s) {
-            $id = $s->id;
-            $data = [
-                'id' => $id,
-                'date_time' => Carbon::parse('+1 days', 'Asia/Jakarta'),
-            ];
-            $s->update($data);
-        }
+        // foreach ($schedules as $s) {
+        //     $id = $s->id;
+        //     $data = [
+        //         'id' => $id,
+        //         'date_time' => Carbon::parse('+0 days', 'Asia/Jakarta'),
+        //     ];
+        //     $s->update($data);
+        // }
+
+        $reports = new Report();
 
         foreach ($schedules as $schedule) {
-            Report::create([
-                'cs_id' => $schedule->cs_id,
-                'room_id' => $schedule->room_id,
+            $reports->update([
                 'schedule_id' => $schedule->id,
-                'date_time' => $schedule->date_time,
                 'status' => 0
             ]);
         }

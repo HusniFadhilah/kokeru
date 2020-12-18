@@ -15,7 +15,7 @@ class CsController extends Controller
         $reports_today = Report::join('schedules', 'schedules.id', '=', 'reports.schedule_id')
             ->join('rooms', 'rooms.id', '=', 'reports.room_id')->orderBy('rooms.name', 'asc')
             ->where('schedules.cs_id', Auth::user()->id)->whereHas('schedule', function ($query) {
-                $query->whereDate('date_time', Carbon::today());
+                $query->whereDate('reports.date_time', Carbon::today());
             })->get();
         return view('cs.index', compact('reports_today'));
     }

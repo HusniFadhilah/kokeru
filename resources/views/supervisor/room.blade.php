@@ -10,7 +10,7 @@
     <div class="page-wrapper">
         <div class="page-body">
             <div class="text-center">
-                <h3>Monitoring Kebersihan dan Kerapihan Ruang Gedung A</h3>
+                <h3>Monitoring Kebersihan dan Kerapihan Ruang Gedung Bersama Maju</h3>
                 <p>Hari {{ Date::hari(now()) }} Tanggal 12 November 2020 jam {{ Date::pukul(now()) }} WIB</p>
             </div>
             <div class="row">
@@ -29,7 +29,7 @@
                 @empty
                 <div class="col-12">
                     <div class="btn btn-block alert alert-dark" role="alert">
-                        No Data
+                        Belum ada data
                     </div>
                 </div>
                 @endforelse

@@ -13,7 +13,7 @@
 
                         <!-- tabs card start -->
                         <div class="col-sm-12">
-                           <form action="{{ route('supervisor.report.export.excel') }}" method="get" class="d-inline mr-1">
+                            <form action="{{ route('supervisor.report.export.excel') }}" method="get" class="d-inline mr-1">
                                 <input type="date" class="d-none" name="date" value="{{ \Carbon\Carbon::parse($date)->format('Y-m-d') }}">
                                 @if($status != 2)
                                 <input type="text" class="d-none" name="status" value="{{ $status }}">
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
-                                        <h3 style="text-align: center">Laporan Kebersihan dan Kerapihan Ruang Gedung A</h3>
+                                        <h3 style="text-align: center">Laporan Kebersihan dan Kerapihan Ruang<br> Gedung Bersama Maju</h3>
                                         <p style="text-align: center">Hari {{ Date::hari($date) }} {{ Date::tanggal($date) }} {{ Date::bulan($date) }} {{ Date::tahun($date) }} jam {{ Date::pukul($date) }} WIB</p><br><br>
                                         <table class="datatable">
                                             <thead>
@@ -85,19 +85,25 @@
                                                     <th>Nama Ruangan</th>
                                                     <th>Karyawan</th>
                                                     <th>Status</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($reports as $rp)
+                                                @foreach($reports as $report)
                                                 <tr>
                                                     <th scope="row">{{ $loop->iteration }}</th>
-                                                    <td>{{ $rp->room['name'] }}</td>
-                                                    <td>{{ $rp->user['name'] }}</td>
-                                                    <td>@if($rp->status == 0)
+                                                    <td>{{ $report->room['name'] }}</td>
+                                                    <td>{{ $report->user['name'] }}</td>
+                                                    <td>@if($report->status == 0)
                                                         <span class="label label-danger">Belum</span>
                                                         @else
                                                         <span class="label label-success">Sudah</span>
                                                         @endif</td>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-primary trigger-modal" data-cs="{{ $report->user['name'] }}" data-room="{{ $report->room['name'] }}" data-file1="{{ asset('storage/'.$report->file_1) }}" data-file2="{{ asset('storage/'.$report->file_2) }}" data-file3="{{ asset('storage/'.$report->file_3) }}" data-file4="{{ asset('storage/'.$report->file_4) }}" data-file5="{{ asset('storage/'.$report->file_5) }}" data-video="{{ asset('storage/'.$report->video) }}" data-toggle="modal" data-target="#modal">
+                                                            <i class="fa fa-eye mr-2"></i>Lihat Bukti
+                                                        </button>
                                                     </td>
                                                 </tr>
                                                 @endforeach

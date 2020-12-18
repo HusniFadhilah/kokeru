@@ -27,7 +27,6 @@ class ProfileController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'max:30'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'password' => 'required',
         ]);
 
         $attr = $request->all();
@@ -42,7 +41,11 @@ class ProfileController extends Controller
         } else {
             $attr['avatar'] = Fungsi::slice_string_by_word($user->avatar);
         }
-
+        if ($request->input('password')) {
+            $attr['password'] = Hash::make($request->input('password'));
+        } else {
+            $attr['password'] = $user["password"];
+        }
         $user->update($attr);
         Fungsi::sweetalert('Profile berhasil diupdate', 'success', 'Berhasil!');
         return redirect(route('profile.edit'));

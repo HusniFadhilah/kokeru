@@ -9,24 +9,37 @@
             <div class="page-wrapper">
                 <div class="page-body">
                     <div class="row">
-
+                        <div class="col-12">
+                            <div class="text-center">
+                                <h4>Monitoring Kebersihan dan Kerapihan Ruang Gedung Bersama Maju</h4>
+                                <p>Hari {{ Date::hari(now()) }} {{ Date::tanggal(now()) }} {{ Date::Bulan(now()) }} {{ Date::tahun(now()) }} jam {{ Date::pukul(now()) }} WIB</p>
+                            </div>
+                        </div>
                         <!-- order-card start -->
+
                         <div class="col-md-6 col-xl-3">
-                            <div class="card bg-c-blue order-card">
-                                <div class="card-block">
-                                    <h6 class="m-b-20">Jumlah Karyawan</h6>
-                                    <h2 class="text-right"><i class="ti-user f-left"></i><span>{{ $sum_cs }}</span></h2>
+                            <a href="{{ route('supervisor.cs.data') }}">
+                                <div class="card bg-c-blue order-card">
+                                    <div class="card-block">
+                                        <h6 class="m-b-20">Jumlah Karyawan</h6>
+                                        <h2 class="text-right"><i class="ti-user f-left"></i><span>{{ $sum_cs }}</span></h2>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
+
+
                         <div class="col-md-6 col-xl-3">
-                            <div class="card bg-c-yellow order-card">
-                                <div class="card-block">
-                                    <h6 class="m-b-20">Jumlah Ruangan</h6>
-                                    <h2 class="text-right"><i class="ti-location-pin f-left"></i><span>{{ $sum_room }}</span></h2>
+                            <a href="{{ route('supervisor.room.data') }}">
+                                <div class="card bg-c-yellow order-card">
+                                    <div class="card-block">
+                                        <h6 class="m-b-20">Jumlah Ruangan</h6>
+                                        <h2 class="text-right"><i class="ti-location-pin f-left"></i><span>{{ $sum_room }}</span></h2>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
+
                         <div class="col-md-6 col-xl-3">
                             <div class="card bg-c-green order-card">
                                 <div class="card-block">
@@ -102,7 +115,45 @@
                                             </div>
                                         </div>
 
+                                        <div class="tab-pane" id="all" role="tabpanel">
 
+                                            <div class="table-responsive table-hover">
+                                                <table class="datatable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Nama</th>
+                                                            <th>Ruangan</th>
+                                                            <th>Tanggal</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach($reports as $report)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $report->user->name }}</td>
+                                                            <td>{{ $report->room['name'] }}</td>
+                                                            <td>{{ Date::indo_date($report->date_time) }}</td>
+                                                            <td>
+                                                                @if($report->status == 0)
+                                                                <span class="label label-danger">Belum</span>
+                                                                @else
+                                                                <span class="label label-success">Sudah</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-primary trigger-modal" data-cs="{{ $report->user['name'] }}" data-room="{{ $report->room['name'] }}" data-file1="{{ asset('storage/'.$report->file_1) }}" data-file2="{{ asset('storage/'.$report->file_2) }}" data-file3="{{ asset('storage/'.$report->file_3) }}" data-file4="{{ asset('storage/'.$report->file_4) }}" data-file5="{{ asset('storage/'.$report->file_5) }}" data-video="{{ asset('storage/'.$report->video) }}" data-toggle="modal" data-target="#modal">
+                                                                    <i class="fa fa-eye mr-2"></i>Lihat Bukti
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

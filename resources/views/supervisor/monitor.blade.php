@@ -10,7 +10,7 @@
     <div class="page-wrapper">
         <div class="page-body">
             <div class="text-center">
-                <h3>Monitoring Kebersihan dan Kerapihan Ruang Gedung A</h3>
+                <h3>Monitoring Kebersihan dan Kerapihan Ruang Gedung Bersama Maju</h3>
                 <p>Hari {{ Date::hari(now()) }} {{ Date::tanggal(now()) }} {{ Date::Bulan(now()) }} {{ Date::tahun(now()) }} jam {{ Date::pukul(now()) }} WIB</p>
             </div>
             <div class="row">
@@ -21,7 +21,16 @@
                             <div class="card-block">
                                 <h1 class="m-b-20">{{ $report->room['name'] }}</h1>
                                 <p>{{ $report->status==0? "BELUM":"SUDAH"}}</p>
-                                <h6><span class="ti-user mr-2"></span>{{ $report->user['name'] }}</h6>
+                                <h6>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <span class="ti-user mr-2"></span>{{ $report->user['name'] }}
+                                        </div>
+                                        <div class="col-4">
+                                            <span class="mr-auto badge badge-light">Detail</span>
+                                        </div>
+                                    </div>
+                                </h6>
                             </div>
                         </div>
                     </a>
@@ -29,7 +38,7 @@
                 @empty
                 <div class="col-12">
                     <div class="btn btn-block alert alert-dark" role="alert">
-                        No Data
+                        Belum ada data
                     </div>
                 </div>
                 @endforelse

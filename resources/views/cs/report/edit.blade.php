@@ -42,7 +42,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-2 col-form-label label-image">Video Bukti</label>
                                         <div class="col-lg-10">
-                                            <input type="file" class="form-control @error('video') is-invalid @enderror" name="video" id="video" accept="video/*">
+                                            <input type="file" class="form-control @error('video') is-invalid @enderror" name="video" id="video">
                                         </div>
                                     </div>
                                     <div class="row">

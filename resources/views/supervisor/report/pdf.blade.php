@@ -57,7 +57,7 @@
                 @else
                 <div class="col-12">
                     <div class="btn btn-block alert alert-dark" role="alert">
-                        No Data
+                        Belum ada data
                     </div>
                 </div>
                 @endif
@@ -68,8 +68,8 @@
                 <div class="float-right">
                     <h5>Approval</h5>
                     <p>ttd</p>
-                    <h5>Arif Sutowo</h5>
-                    <h5>Manajer.</h5>
+                    <h5>{{ $supervisor }}</h5>
+                    <h5>Manajer</h5>
                 </div>
             </div>
         </div>

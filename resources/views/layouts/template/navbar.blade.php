@@ -24,7 +24,7 @@
                     </a>
                     <ul class="show-notification profile-notification">
                         <li>
-                            <a href="{{ route('profile.edit') }}">
+                            <a href="{{ route('profile.edit',Auth::user()->id) }}">
                                 <i class="ti-user"></i> Profile
                             </a>
                         </li>

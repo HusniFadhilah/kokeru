@@ -79,6 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('/report', ReportController::class, [
                 'names' => [
                     'index' => 'report.data',
+                    'edit' => 'report.edit',
                     'update' => 'report.update',
                 ]
             ]);

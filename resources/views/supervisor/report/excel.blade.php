@@ -1,3 +1,6 @@
+<h5>Laporan Harian Kebersihan dan Kerapihan Ruangan Gedung Bersama Maju</h5>
+{{-- <h4>Hari {{$waktu_tugas}}</h4>
+<p>&lt;&lt;Tanggal Cetak {{$tanggal}} Jam {{$waktu}} WIB&gt;&gt;</p> --}}
 <table>
     <caption>Monthly savings</caption>
     <thead>

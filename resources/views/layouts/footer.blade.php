@@ -3,13 +3,13 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Detail Bukti</h5>
+                <h5 class="modal-title" id="modalLabel">Detail Bukti Kebersihan & Kerapihan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
+                <div class="row ada-bukti">
                     <div class="col-6">
                         <span>
                             <h6>Pengirim: </h6><span id="cs"></span>
@@ -23,6 +23,11 @@
                 </div>
                 <h6 class="mt-4">Bukti Foto</h6>
                 <div class="row">
+                    <div class="col-12 bukti-kosong">
+                        <div class="btn btn-block alert alert-dark" role="alert">
+                            Belum ada bukti
+                        </div>
+                    </div>
                     @for($i=1;$i<=5;$i++) <div class="col-lg-4">
                         <div class="item web">
                             <a href="" class="item-wrap image-popup" id="link{{ $i }}">
@@ -55,11 +60,13 @@
 </div>
 </div>
 
-@if(Fungsi::get_schedule_now() != '0000-00-00' && Fungsi::get_schedule_now() != null)
+@php $tanggalreset = Fungsi::get_schedule_now()@endphp
+
+@if($tanggalreset != '0000-00-00' && $tanggalreset != null)
 <form action="{{ route('schedule.reset') }}" method="post" id="reset-form">
     @csrf
     @method('patch')
-    <input type="hidden" name="finish" value="{{ Fungsi::get_schedule_now() }} 23:59:00">
+    <input type="hidden" name="finish" value="{{ $tanggalreset }} 23:59:00">
 </form>
 @endif
 <div class="flash-data" data-text="{{ session()->get('text')  }}" data-title="{{ session()->get('title')  }}" data-icon="{{ session()->get('icon') }}"></div>
@@ -205,9 +212,30 @@
             , text: 'Data ' + textflashData + ' ini akan dihapus'
             , icon: 'warning'
             , showCancelButton: true
-            , confirmButtonColor: '#3085d6'
+            , confirmButtonColor: '#28a745'
             , cancelButtonColor: '#d33'
             , confirmButtonText: 'Ya, hapus data!'
+        }).then((result) => {
+            if (result.value) {
+                form.action = href;
+                form.submit();
+            }
+        });
+    });
+
+    $('.tombol-konfirmasi').on('click', function(e) {
+        e.preventDefault();
+        const messageflashData = $(this).data('message');
+        const href = $(this).attr('href');
+        const form = document.getElementById('confirm-form');
+        Swal.fire({
+            title: 'Apakah Anda yakin?'
+            , text: messageflashData
+            , icon: 'warning'
+            , showCancelButton: true
+            , confirmButtonColor: '#3085d6'
+            , cancelButtonColor: '#d33'
+            , confirmButtonText: 'Ya, lanjutkan!'
         }).then((result) => {
             if (result.value) {
                 form.action = href;
@@ -273,8 +301,8 @@
 
 </script>
 <script>
+    $(".bukti-kosong").hide();
     $(document).ready(function() {
-
         $('.trigger-modal').click(function() {
             let cs = $(this).data('cs');
             let room = $(this).data('room');
@@ -337,6 +365,14 @@
             } else {
                 $(".modal-body #file5").attr('src', '');
                 $(".modal-body #file5").hide();
+            }
+
+            if ($(".modal-body #file1").attr('src') == '') {
+                $(".ada-bukti").hide();
+                $(".bukti-kosong").show();
+            } else {
+                $(".ada-bukti").show();
+                $(".bukti-kosong").hide();
             }
 
         })
