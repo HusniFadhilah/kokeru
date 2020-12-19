@@ -24,7 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('reset:status')->everyMinute();
+        $schedule->command('reset:status')
+            ->timezone('Asia/Jakarta')
+            ->everyMinute();
     }
 
     /**

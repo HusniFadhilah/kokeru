@@ -29,8 +29,8 @@ class ReportController extends Controller
     {
         $request->validate([
             'foto' => 'required',
-            'foto.*' => ['required', 'mimetypes:image/*'],
-            'video' => ['mimetypes:video/*'],
+            'foto.*' => ['required', 'mimetypes:image/*', 'max:2048'],
+            'video' => ['mimetypes:video/*', 'max:14336'],
         ]);
         $attr = $request->all();
         if ($request->hasfile('foto')) {

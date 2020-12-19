@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Http\Controllers\Supervisor\ScheduleController;
+use App\Http\Controllers\ResetScheduleController;
 
 class ResetStatus extends Command
 {
@@ -38,7 +38,7 @@ class ResetStatus extends Command
      */
     public function handle()
     {
-        $schedule = new ScheduleController();
+        $schedule = new ResetScheduleController();
         $schedule->reset();
         $this->info("Successfully reset status all cleaning service's schedule");
     }

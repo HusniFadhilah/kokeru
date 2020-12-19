@@ -39,6 +39,7 @@ class ReportController extends Controller
             Fungsi::sweetalert('Laporan gagal dieksport, belum ada data', 'error', 'Gagal!');
             return redirect(route('supervisor.report.data'));
         }
+        $supervisor = Auth::user()->name;
         $reports = Report::query();
         $date = Carbon::today();
         $status = '';
@@ -52,7 +53,7 @@ class ReportController extends Controller
         $reports->whereDate('date_time', $date);
 
         $reports = $reports->get();
-        return Excel::download(new ReportExport($reports, $date, $status), 'laporan.xlsx');
+        return Excel::download(new ReportExport($reports, $date, $status, $supervisor), 'laporan.xlsx');
     }
 
     public function export_pdf(Request $request)

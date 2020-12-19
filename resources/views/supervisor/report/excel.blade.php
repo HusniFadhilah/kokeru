@@ -1,8 +1,16 @@
-<h5>Laporan Harian Kebersihan dan Kerapihan Ruangan Gedung Bersama Maju</h5>
-{{-- <h4>Hari {{$waktu_tugas}}</h4>
-<p>&lt;&lt;Tanggal Cetak {{$tanggal}} Jam {{$waktu}} WIB&gt;&gt;</p> --}}
+<div class="text-center mt-4">
+    <h4>
+        Laporan Harian Kebersihan dan Kerapihan Ruangan Gedung Bersama Maju
+    </h4>
+    <h4>
+        Hari {{ Date::hari($date) }}
+        Tanggal {{ Date::indo_date($date) }}
+    </h4>
+    <p>
+        &lt;&lt; Tanggal Cetak {{ Date::indo_date(now()) }} Pukul {{ Date::pukul(now()) }} WIB &gt;&gt;
+    </p>
+</div>
 <table>
-    <caption>Monthly savings</caption>
     <thead>
         <tr>
             <th scope=" col">No</th>
@@ -22,3 +30,7 @@
         @endforeach
     </tbody>
 </table>
+<p>Approval</p>
+<p>&lt;&lt;ttd&gt;&gt;</p>
+<p>{{ $supervisor }}</p>
+<p>Manajer</p>

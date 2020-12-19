@@ -15,7 +15,7 @@
                         <div class="col-sm-12">
                             <a href="{{ route('supervisor.schedule.create') }}" class="btn btn-primary mb-3"><i class="fa fa-plus mr-2"></i>Tambah Jadwal Baru</a>
                             <br>
-                            <a href="{{ route('supervisor.schedule.reset') }}" class="btn btn-danger mb-3 tombol-konfirmasi" data-message="Jadwal hari ini akan direset dan status ruangan menjadi belum dibersihkan" title="Verify shop"><i class="fa fa-refresh mr-2"></i>Reset Jadwal Hari Ini</a>
+                            <a href="{{ route('supervisor.schedule.reset') }}" class="btn btn-danger mb-3 tombol-konfirmasi" data-message="Jadwal hari ini akan direset, status ruangan menjadi belum dibersihkan, dan bukti kebersihan akan dihapus" title="Verify shop"><i class="fa fa-refresh mr-2"></i>Reset Jadwal Hari Ini</a>
                             <form id="confirm-form" action="" method="POST" class="d-none">
                                 @csrf
                             </form>

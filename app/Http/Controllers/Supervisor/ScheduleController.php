@@ -86,24 +86,39 @@ class ScheduleController extends Controller
 
     public function reset()
     {
-        $schedules = Schedule::where('date_time', Carbon::today());
+        $reports = Report::whereDate('date_time', Carbon::today())->get();
 
-        // foreach ($schedules as $s) {
-        //     $id = $s->id;
-        //     $data = [
-        //         'id' => $id,
-        //         'date_time' => Carbon::parse('+0 days', 'Asia/Jakarta'),
-        //     ];
-        //     $s->update($data);
-        // }
+        foreach ($reports as $report) {
+            $data = [
+                'id' => $report->id,
+                'status' => 0,
+            ];
 
-        $reports = new Report();
-
-        foreach ($schedules as $schedule) {
-            $reports->update([
-                'schedule_id' => $schedule->id,
-                'status' => 0
-            ]);
+            if (Fungsi::slice_string_by_word($report["file_1"]) != null) {
+                unlink(storage_path('app/public/' . Fungsi::slice_string_by_word($report["file_1"])));
+                $data['file_1'] = null;
+            }
+            if (Fungsi::slice_string_by_word($report["file_2"]) != null) {
+                unlink(storage_path('app/public/' . Fungsi::slice_string_by_word($report["file_2"])));
+                $data['file_2'] = null;
+            }
+            if (Fungsi::slice_string_by_word($report["file_3"]) != null) {
+                unlink(storage_path('app/public/' . Fungsi::slice_string_by_word($report["file_3"])));
+                $data['file_3'] = null;
+            }
+            if (Fungsi::slice_string_by_word($report["file_4"]) != null) {
+                unlink(storage_path('app/public/' . Fungsi::slice_string_by_word($report["file_4"])));
+                $data['file_4'] = null;
+            }
+            if (Fungsi::slice_string_by_word($report["file_5"]) != null) {
+                unlink(storage_path('app/public/' . Fungsi::slice_string_by_word($report["file_5"])));
+                $data['file_5'] = null;
+            }
+            if (Fungsi::slice_string_by_word($report["video"]) != null) {
+                unlink(storage_path('app/public/' . Fungsi::slice_string_by_word($report["video"])));
+                $data['video'] = null;
+            }
+            $report->update($data);
         }
 
         Fungsi::sweetalert('Jadwal berhasil direset', 'success', 'Berhasil!');

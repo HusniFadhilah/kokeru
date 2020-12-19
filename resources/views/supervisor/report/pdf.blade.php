@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="text-center title">
             <h4>
-                Laporan Harian Kebersihan dan Kerapihan Ruangan Gedung Bersama Maju<br>
+                Laporan Harian Kebersihan dan Kerapihan Ruangan<br>Gedung Bersama Maju<br>
                 Hari {{ Date::hari($date) }} Tanggal {{ Date::indo_date($date) }}
             </h4>
             <div class="row">
