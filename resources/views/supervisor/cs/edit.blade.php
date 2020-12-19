@@ -7,9 +7,10 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
                 <div class="page-body">
-                    <div class="row">
+                    <div class="card tabs-card">
+                        <div class="card-block">
+                            <div class="container">
 
                         <form action="{{ route('supervisor.cs.update',$user->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -69,11 +70,13 @@
                                 <a href="{{ route('supervisor.cs.data') }}" id="back" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
                             </div>
                         </form>
-
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

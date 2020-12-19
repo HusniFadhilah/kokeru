@@ -9,7 +9,9 @@
             <div class="page-wrapper">
 
                 <div class="page-body">
-                    <div class="row">
+                    <div class="card tabs-card">
+                        <div class="card-block">
+                            <div class="container">
 
                         <form action="{{ route('supervisor.room.update',$room->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -33,7 +35,8 @@
                                 <a href="{{ route('supervisor.room.data') }}" id="back" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
                             </div>
                         </form>
-
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
