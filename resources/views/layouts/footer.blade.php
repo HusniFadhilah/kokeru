@@ -136,7 +136,6 @@
 
         if (distance < 0) {
             clearInterval(x);
-            formreset.submit();
         }
     }, 1000);
 

@@ -39,7 +39,7 @@ class ResetStatus extends Command
     public function handle()
     {
         $schedule = new ResetScheduleController();
-        $schedule->reset();
+        $schedule->__invoke();
         $this->info("Successfully reset status all cleaning service's schedule");
     }
 }
