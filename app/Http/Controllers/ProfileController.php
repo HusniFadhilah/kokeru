@@ -20,9 +20,8 @@ class ProfileController extends Controller
         return view('supervisor.profile', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $user = User::find($id);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'max:30'],
@@ -48,6 +47,6 @@ class ProfileController extends Controller
         }
         $user->update($attr);
         Fungsi::sweetalert('Profile berhasil diupdate', 'success', 'Berhasil!');
-        return redirect(route('profile.edit'));
+        return redirect()->back();
     }
 }

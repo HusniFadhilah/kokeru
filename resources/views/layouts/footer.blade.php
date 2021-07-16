@@ -60,15 +60,8 @@
 </div>
 </div>
 
-@php $tanggalreset = Fungsi::get_schedule_now()@endphp
+<div id="finish" data-value="{{ Fungsi::get_schedule_now() }} 23:59:00"></div>
 
-@if($tanggalreset != '0000-00-00' && $tanggalreset != null)
-<form action="{{ route('schedule.reset') }}" method="post" id="reset-form">
-    @csrf
-    @method('patch')
-    <input type="hidden" name="finish" value="{{ $tanggalreset }} 23:59:00">
-</form>
-@endif
 <div class="flash-data" data-text="{{ session()->get('text')  }}" data-title="{{ session()->get('title')  }}" data-icon="{{ session()->get('icon') }}"></div>
 
 <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
@@ -121,7 +114,7 @@
 @endif
 <script>
     const formreset = document.getElementById('reset-form');
-    const finish = document.querySelector('input[name=finish]').value;
+    const finish = $('#finish').data('value');
     var countDownDate = new Date(finish);
 
     countDownDate = new Date(countDownDate);
