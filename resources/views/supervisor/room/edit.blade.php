@@ -7,7 +7,6 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
                 <div class="page-body">
                     <div class="card tabs-card">
                         <div class="card-block">
